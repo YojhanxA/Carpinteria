@@ -21,7 +21,7 @@ export const Home = () => {
       {/* IMAGEN */}
       <section className="text-center">
         <img
-          src="/src/img/carpinteria.png"
+          src="/carpinteria.png"
           alt="Taller de carpintería"
           className="img-fluid rounded-4 shadow"
           style={{ maxHeight: "500px", objectFit: "cover" }}
