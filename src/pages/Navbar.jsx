@@ -2,6 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const phoneNumber = "573246768211";
+  const message =
+    "¡Hola! Vi su página de Carpintería La 16 y me interesa saber más sobre sus productos.";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4 py-3 shadow-sm">
@@ -30,15 +37,22 @@ export const Navbar = () => {
                   Inicio
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link to="/acerca" className="nav-link fw-medium">
-                  Acerca de nosotros
+                  acerca de nosotros
                 </Link>
               </li>
+
               <li className="nav-item">
-                <button className="btn btn-dark rounded-pill px-4">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-dark rounded-pill px-4"
+                >
                   CONTÁCTANOS
-                </button>
+                </a>
               </li>
             </ul>
           </div>
