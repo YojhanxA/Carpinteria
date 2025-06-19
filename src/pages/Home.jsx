@@ -1,14 +1,14 @@
 // src/pages/Home.jsx
 import React from "react";
-import { Carousel } from "./Carrusel";
+import { Gallery } from "../components/Gallery";
 export const Home = () => {
-  const images = [
+  /* const images = [
     "/img/1.jpeg",
     "/img/2.jpeg",
     "/img/3.jpeg",
     "/img/4.jpeg",
     "/img/5.jpeg",
-  ];
+  ];*/
   return (
     <main className="container py-5">
       <section className="text-center mb-5">
@@ -38,7 +38,7 @@ export const Home = () => {
         <h3 className="fw-bold mb-4">Algunos diseños</h3>
       </section>
       <section>
-        <Carousel images={images} />
+        <Gallery />
       </section>
     </main>
   );
