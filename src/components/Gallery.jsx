@@ -32,6 +32,13 @@ const productos = [
       "Closet empotrado de seis puertas, cuatro cajones y zonas de colgado. Perfecto para optimizar el espacio.",
     imagen: "/img/5.jpeg",
   },
+  {
+    titulo: "Camas",
+    descripcion:
+      "Cama matrimonial con cabecera tapizada y estructura de madera. Diseño elegante y funcional para el descanso.",
+    imagen: "/img/Cama.jpg",
+
+  }
 ];
 
 export const Gallery = () => {
