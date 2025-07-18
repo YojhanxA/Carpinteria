@@ -24,16 +24,13 @@ export const AcercaD = () => {
       </section>
 
       <section className="text-center mt-5">
-        <h3 className="fw-bold mb-4">Lo que nos mueve</h3>
+        <h3 className="fw-bold mb-4">¿En donde estamos ubicados?</h3>
         <p className="mb-4">
-          Nos motiva ver cómo un cliente sonríe al ver su mueble terminado. Por
-          eso, trabajamos con pasión, precisión y materiales de primera. Aquí no
-          se improvisa: se diseña, se mide y se entrega con el corazón.
+          Nos encontramos en la Calle 16 con carrera 8 # 792, Espinal - Tolima.
+          Puedes visitarnos de lunes a sábado de 8:00 a.m. a 6 pm
         </p>
         <p className="mb-4">
-          Cada corte, cada puntada y cada acabado reflejan nuestro compromiso
-          por ofrecerte lo mejor. En La 16 no vendemos muebles, creamos espacios
-          donde vivir mejor.
+          
         </p>
       </section>
     </main>

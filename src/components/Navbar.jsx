@@ -45,6 +45,12 @@ export const Navbar = () => {
               </li>
 
               <li className="nav-item">
+                <Link to="/proyectosc" className="nav-link fw-medium">
+                  Proyectos
+                </Link>
+              </li>
+
+              <li className="nav-item">
                 <a
                   href={whatsappLink}
                   target="_blank"
