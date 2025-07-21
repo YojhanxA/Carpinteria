@@ -10,8 +10,12 @@ export const Proyectos = () => {
                 <p className="fw-medium mb-4">
                     Explora nuestra galería de proyectos destacados y descubre cómo transformamos espacios con nuestro trabajo artesanal.
                 </p>
-
             </section>
+
+            <section>
+               
+            </section>
+
         </main>
 
     );

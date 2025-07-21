@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const phoneNumber = "573246768211";
   const message =
     "¡Hola! Vi su página de Carpintería La 16 y me interesa saber más sobre sus productos.";
@@ -44,10 +46,55 @@ export const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link to="/proyectosc" className="nav-link fw-medium">
+              {/* Dropdown de Proyectos */}
+              <li
+                className="nav-item dropdown"
+                onMouseEnter={() => setDropdownOpen(true)}
+                onMouseLeave={() => setDropdownOpen(false)}
+              >
+                <button
+                  className="nav-link fw-medium dropdown-toggle bg-transparent border-0"
+                  type="button"
+                  id="proyectosDropdown"
+                  aria-expanded={dropdownOpen}
+                >
                   Proyectos
-                </Link>
+                </button>
+                <ul
+                  className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
+                  aria-labelledby="proyectosDropdown"
+                >
+                  <li>
+                    <Link to="/proyectos/salas" className="dropdown-item">
+                      Salas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/escritorios" className="dropdown-item">
+                      Escritorios
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/sofas" className="dropdown-item">
+                      Sofás
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/cocinas" className="dropdown-item">
+                      Cocinas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/closets" className="dropdown-item">
+                      Closets
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/camas" className="dropdown-item">
+                      Camas
+                    </Link>
+                  </li>
+                </ul>
               </li>
 
               <li className="nav-item">

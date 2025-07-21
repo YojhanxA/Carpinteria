@@ -14,7 +14,7 @@ export const Footer = () => {
           <div className="col-md-4 mb-4">
             <h6 className="fw-semibold">Contacto</h6>
             <ul className="list-unstyled small">
-              <li>📍 Medellín, Colombia</li>
+              <li>📍 Espinal, Tolima</li>
               <li>📞 +57 324 676 8211</li>
               <li>📧 aslanfto2018@gmail.com</li>
             </ul>
@@ -23,15 +23,14 @@ export const Footer = () => {
           <div className="col-md-4 mb-4">
             <h6 className="fw-semibold">Síguenos</h6>
             <div className="d-flex justify-content-center justify-content-md-start gap-3">
-              <a href="#" className="text-white">
-                <i className="bi bi-facebook fs-5"></i>
-              </a>
-              <a href="#" className="text-white">
-                <i className="bi bi-instagram fs-5"></i>
-              </a>
-              <a href="#" className="text-white">
-                <i className="bi bi-whatsapp fs-5"></i>
-              </a>
+              <ul className="list-unstyled d-flex gap-3 mb-0">
+                <li>
+                  <a href="#" className="text-white">
+                    Facebook
+                    <i className="bi bi-facebook ms-1"></i>
+                  </a>
+               </li>
+              </ul>
             </div>
           </div>
         </div>
