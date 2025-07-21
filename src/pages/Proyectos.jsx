@@ -1,3 +1,5 @@
+import Salas from "./Salas";
+
 export const Proyectos = () => {
     return (
         <main className="container py-5">
@@ -13,7 +15,7 @@ export const Proyectos = () => {
             </section>
 
             <section>
-               
+
             </section>
 
         </main>
