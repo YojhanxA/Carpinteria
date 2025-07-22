@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   const phoneNumber = "573246768211";
   const message =
     "¡Hola! Vi su página de Carpintería La 16 y me interesa saber más sobre sus productos.";
@@ -40,8 +46,56 @@ export const Navbar = () => {
 
               <li className="nav-item">
                 <Link to="/acerca" className="nav-link fw-medium">
-                  acerca de nosotros
+                  Acerca de nosotros
                 </Link>
+              </li>
+
+              {/* Dropdown de Proyectos */}
+              <li className="nav-item dropdown">
+                <button
+                  className="nav-link fw-medium dropdown-toggle bg-transparent border-0"
+                  type="button"
+                  id="proyectosDropdown"
+                  onClick={toggleDropdown}
+                  aria-expanded={dropdownOpen}
+                >
+                  Proyectos
+                </button>
+                <ul
+                  className={`dropdown-menu ${dropdownOpen ? "show" : ""}`}
+                  aria-labelledby="proyectosDropdown"
+                >
+                  <li>
+                    <Link to="/proyectos/salas" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      Salas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/escritorios" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      Escritorios
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/sofas" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      Sofás
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/cocinas" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      Cocinas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/closets" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      Closets
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/proyectos/camas" className="dropdown-item" onClick={() => setDropdownOpen(false)}>
+                      Camas
+                    </Link>
+                  </li>
+                </ul>
               </li>
 
               <li className="nav-item">
@@ -61,3 +115,4 @@ export const Navbar = () => {
     </header>
   );
 };
+
