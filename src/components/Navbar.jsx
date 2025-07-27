@@ -1,11 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    // Si quisieras navegar a una ruta específica basada en la búsqueda:
+    if (searchTerm.trim()) {
+      navigate(`/proyectos/${searchTerm.toLowerCase()}`);
+      setSearchTerm("");
+    }
   };
 
   const phoneNumber = "573246768211";
@@ -98,6 +110,23 @@ export const Navbar = () => {
                 </ul>
               </li>
 
+              {/* Formulario de búsqueda */}
+              <li className="nav-item">
+                <form className="d-flex" onSubmit={handleSearch}>
+                  <input
+                    className="form-control me-2"
+                    type="search"
+                    placeholder="Buscar..."
+                    aria-label="Buscar"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <button className="btn btn-outline-dark" type="submit">
+                    Buscar
+                  </button>
+                </form>
+              </li>
+
               <li className="nav-item">
                 <a
                   href={whatsappLink}
@@ -115,4 +144,3 @@ export const Navbar = () => {
     </header>
   );
 };
-

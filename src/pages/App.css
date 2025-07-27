@@ -1,0 +1,8 @@
+/* App.css */
+.img-hover-zoom {
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-hover-zoom:hover {
+    transform: scale(1.1);
+}
