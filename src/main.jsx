@@ -14,7 +14,6 @@ import Closets from "./pages/Closets";
 import Camas from "./pages/Camas";
 import Escritorios from "./pages/Escritorios";
 
-
 // Renderizamos el componente de rutas
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -1,4 +1,3 @@
-import Salas from "./Salas";
 
 export const Proyectos = () => {
     return (
