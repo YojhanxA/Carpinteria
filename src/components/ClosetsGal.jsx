@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const salasGale = [
-    {
-        descripcion:
-            "Sala de reuniones con mesa ovalada y sillas ergonómicas. Ideal para sesiones de trabajo colaborativo.",
-        imagen: "/img/Salas1.jpg",
-        ruta: "/proyectos/salas",
-    },
-    {
-        descripcion:
-            "Sala ejecutiva con muebles de madera oscura y iluminación cálida. Perfecta para reuniones formales.",
-        imagen: "/img/Salas2.jpg",
-        ruta: "/proyectos/salas",
-    },
-    {
-        descripcion:
-            "Sala de descanso con sofás cómodos y decoración moderna. Un espacio para relajarse y recargar energías.",
-        imagen: "/img/Salas3.jpg",
-        ruta: "/proyectos/salas",
-    },
-]
+const closetsGale = [{
 
-export const SalasGaleComponent = () => {
+ descripcion:
+  "Closet empotrado con puertas corredizas y acabado en madera clara. Ideal para maximizar el espacio de almacenamiento.",
+    imagen: "/img/Closet1.jpg",
+  ruta: "/proyectos/closets",
+ },{
+
+ descripcion:
+  "Closet modular con estantes ajustables y espacio para ropa colgada. Perfecto para organizar prendas de diferentes tamaños.",
+    imagen: "/img/Closet2.jpg",
+  ruta: "/proyectos/closets",
+ },{
+    descripcion:
+  "Closet de esquina con diseño compacto y funcional. Incluye cajones y compartimentos para accesorios.",
+    imagen: "/img/Closet3.jpg",
+  ruta: "/proyectos/closets",
+}]
+
+
+export const ClosetsGaleComponent = () => {
     const [selectedImg, setSelectedImg] = useState(null);
 
     const openModal = (img) => {
@@ -34,13 +33,13 @@ export const SalasGaleComponent = () => {
     return (
         <div className="container py-5">
             <div className="row">
-                {salasGale.map((item, index) => (
+                {closetsGale.map((item, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card h-100">
                             <img
                                 src={item.imagen}
                                 className="card-img-top"
-                                alt={`Sala ${index + 1}`}
+                                alt={`Closet ${index + 1}`}
                                 style={{
                                     height: "250px",
                                     objectFit: "cover",

@@ -1,28 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const salasGale = [
+const CamasGal = [
     {
-        descripcion:
-            "Sala de reuniones con mesa ovalada y sillas ergonómicas. Ideal para sesiones de trabajo colaborativo.",
-        imagen: "/img/Salas1.jpg",
-        ruta: "/proyectos/salas",
-    },
-    {
-        descripcion:
-            "Sala ejecutiva con muebles de madera oscura y iluminación cálida. Perfecta para reuniones formales.",
-        imagen: "/img/Salas2.jpg",
-        ruta: "/proyectos/salas",
-    },
-    {
-        descripcion:
-            "Sala de descanso con sofás cómodos y decoración moderna. Un espacio para relajarse y recargar energías.",
-        imagen: "/img/Salas3.jpg",
-        ruta: "/proyectos/salas",
-    },
+    descripcion:"Cama matrimonial con cabecera tapizada en tela suave y estructura de madera robusta. Perfecta para un dormitorio elegante.",
+    imagen:"/img/Cama1.jpg",
+    ruta:"/proyectos/camas",
+},
+{
+    descripcion:"Cama individual con diseño minimalista y almacenamiento debajo del colchón. Ideal para habitaciones pequeñas.",
+    imagen:"/img/Cama2.jpg",
+    ruta:"/proyectos/camas",
+},
+{
+    descripcion:"Cama king size con dosel y detalles tallados en la madera. Añade un toque de lujo a cualquier habitación.",
+    imagen:"/img/Cama3.jpg",
+    ruta:"/proyectos/camas",
+}
+
 ]
 
-export const SalasGaleComponent = () => {
+export const CamasGalComponent = () => {
     const [selectedImg, setSelectedImg] = useState(null);
 
     const openModal = (img) => {
@@ -34,13 +32,13 @@ export const SalasGaleComponent = () => {
     return (
         <div className="container py-5">
             <div className="row">
-                {salasGale.map((item, index) => (
+                {CamasGal.map((item, index) => (
                     <div key={index} className="col-md-4 mb-4">
                         <div className="card h-100">
                             <img
                                 src={item.imagen}
                                 className="card-img-top"
-                                alt={`Sala ${index + 1}`}
+                                alt={`Cama ${index + 1}`}
                                 style={{
                                     height: "250px",
                                     objectFit: "cover",
