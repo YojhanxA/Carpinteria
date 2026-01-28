@@ -28,6 +28,17 @@ export const Footer = () => {
                   <a href="#" className="text-white">
                     Facebook
                     <i className="bi bi-facebook ms-1"></i>
+
+                    <a href="#" className="text-white">
+                      Instagram
+                      <i className="bi bi-instagram ms-1"></i>
+                    </a>
+                    
+                    <a href="#" className="text-white">
+                      Tiktok
+                    </a>
+                    <i className="bi bi-tiktok ms-1"></i>
+
                   </a>
                </li>
               </ul>

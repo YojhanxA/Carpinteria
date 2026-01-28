@@ -127,7 +127,7 @@ export const AcercaD = () => {
           />
         </div>
       </section>
-
+        
       {/* CONTACTO / CTA */}
       <section className="text-center py-4 bg-light rounded-4">
         <h3 className="h6 fw-bold mb-2">¿Listo para tu proyecto?</h3>
@@ -135,7 +135,7 @@ export const AcercaD = () => {
           Contáctanos para una cotización o visita al taller.
         </p>
         <div>
-          <a href="tel:+571234567890" className="btn btn-dark me-2">
+          <a href="tel:+573106366039" className="btn btn-dark me-2">
             Llamar
           </a>
           <a href="mailto:info@la16.com" className="btn btn-outline-dark">
