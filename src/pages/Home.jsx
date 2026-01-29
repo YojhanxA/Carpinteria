@@ -1,55 +1,88 @@
-// src/pages/Home.jsx
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { Gallery } from "../components/Gallery";
 
+
+
+const fondos = [
+  "/img/Closet1.jpg", 
+  "/img/Cocina1.jpg",
+  "/img/Salas1.jpg"
+];
+
 export const Home = () => {
+  const [index, setIndex] = useState(0);
+
+  // Lógica para el bucle de imágenes
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % fondos.length);
+    }, 5000); // Cambia cada 5 segundos
+    return () => clearInterval(intervalo);
+  }, []);
+
   return (
-    <main className="container p-0">
-      {/* HERO */}
-      <section className="text-center py-5 bg-light position-relative overflow-hidden">
-        <div className="container py-5">
-          <h2 className="display-4 fw-bold mb-3">Carpintería y Tapicería La 16</h2>
-          <p className="lead fw-semibold mb-2">Transformamos espacios con estilo y calidad.</p>
-          <p className="fw-medium mb-4 px-3 px-md-5">
-            Desde muebles personalizados hasta tapicería fina, en La 16 creamos soluciones únicas que elevan tu hogar o negocio.
+    <main className="bg-white">
+      {/* SECCIÓN HERO CON SLIDER DINÁMICO */}
+      <section className="hero-slider">
+        {fondos.map((imagen, i) => (
+          <div
+            key={i}
+            className={`slide ${i === index ? "active" : ""}`}
+            style={{ backgroundImage: `url(${imagen})` }}
+          />
+        ))}
+
+        {/* Capa oscura para que el texto sea legible */}
+        <div className="hero-overlay"></div>
+
+        {/* Contenido del Hero */}
+        <div className="container h-100 d-flex flex-column justify-content-center align-items-center text-center text-white position-relative" style={{ zIndex: 3 }}>
+          <span className="small letter-spacing-3 mb-3 fade-in">
+            DESDE EL CORAZÓN DEL TALLER
+          </span>
+          
+          <h2 className="display-2 fw-light mb-4 text-uppercase tracking-tighter">
+            Carpintería y Tapicería La 16
+          </h2>
+          
+          <div className="mx-auto mb-4" style={{ width: "60px", height: "1px", backgroundColor: "#fff" }}></div>
+          
+          <p className="lead fs-4 mb-5 px-3 opacity-75">
+            Transformamos espacios con estilo y calidad absoluta.
           </p>
-          <Link to="/about" className="btn btn-dark px-4">Taller</Link>
-        </div>
 
-        {/* Wave bottom */}
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 80 }}>
-          <path d="M0,0 C300,100 900,0 1200,80 L1200,120 L0,120 Z" fill="#ffffff" />
-        </svg>
-      </section>
-
-      {/* IMAGE SECTION */}
-      <section className="text-center bg-white pt-0">
-        <div className="container">
-          <div className="mx-auto" style={{ maxWidth: 1000 }}>
-            <img
-              src="/carpinteria.png"
-              alt="Taller de carpintería"
-              className="img-fluid rounded-4 shadow"
-              style={{ maxHeight: "500px", objectFit: "cover", width: "100%" }}
-            />
+          {/* Textos inferiores (como en la imagen de referencia) */}
+          <div className="container position-absolute bottom-0 mb-5 d-none d-md-block">
+            <div className="row small letter-spacing-2 opacity-75 text-uppercase">
+              <div className="col-md-4">El origen está en<br/>lo que tocamos,</div>
+              <div className="col-md-4">La historia en lo<br/>que transformamos,</div>
+              <div className="col-md-4">Y el resultado en<br/>cómo lo habitamos.</div>
+            </div>
           </div>
         </div>
-
-        {/* Wave bottom (inverted) */}
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 80 }}>
-          <path d="M0,80 C300,0 900,100 1200,0 L1200,120 L0,120 Z" fill="#f8f9fa" />
-        </svg>
       </section>
 
-      {/* GALLERY */}
-      <section className="text-center bg-light py-5">
+      {/* FRANJA DE TEXTURAS */}
+      <div className="container-fluid p-0 overflow-hidden">
+        <div className="d-flex" style={{ height: "100px" }}>
+            <div className="flex-fill" style={{ backgroundColor: '#2d1b14' }}></div>
+            <div className="flex-fill" style={{ backgroundColor: '#4a332b' }}></div>
+            <div className="flex-fill" style={{ backgroundColor: '#1a2421' }}></div>
+            <div className="flex-fill" style={{ backgroundColor: '#634d41' }}></div>
+        </div>
+      </div>
+
+      {/* GALERÍA DE PROYECTOS */}
+      <section className="py-5 mt-5">
         <div className="container">
-          <h3 className="fw-bold mb-4">Algunos diseños</h3>
+          <div className="text-center mb-5">
+            <h3 className="fw-light text-uppercase tracking-widest" style={{ letterSpacing: '5px' }}>
+                Nuestra Colección
+            </h3>
+          </div>
           <Gallery />
         </div>
       </section>
     </main>
   );
 };
-

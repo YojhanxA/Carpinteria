@@ -3,15 +3,11 @@ import React, { useState } from "react";
 export const Carousel = ({ images }) => {
   const [selectedImg, setSelectedImg] = useState(null);
 
-  const openModal = (img) => {
-    setSelectedImg(img);
-    const modal = new bootstrap.Modal(document.getElementById("imageModal"));
-    modal.show();
-  };
+
 
   return (
     <>
-      {/* Carousel */}
+      {/* --- CARRUSEL --- */}
       <div
         id="carouselBootstrap"
         className="carousel slide"
@@ -41,21 +37,24 @@ export const Carousel = ({ images }) => {
                 style={{
                   objectFit: "cover",
                   maxHeight: "500px",
-                  cursor: "pointer",
+                  cursor: "zoom-in",
                 }}
-                onClick={() => openModal(img)}
+                onClick={() => setSelectedImg(img)}
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal"
               />
             </div>
           ))}
         </div>
 
+        {/* Controles de navegación */}
         <button
           className="carousel-control-prev"
           type="button"
           data-bs-target="#carouselBootstrap"
           data-bs-slide="prev"
         >
-          <span className="carousel-control-prev-icon"></span>
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
         </button>
         <button
           className="carousel-control-next"
@@ -63,11 +62,11 @@ export const Carousel = ({ images }) => {
           data-bs-target="#carouselBootstrap"
           data-bs-slide="next"
         >
-          <span className="carousel-control-next-icon"></span>
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
         </button>
       </div>
 
-      {/* Modal para imagen ampliada */}
+      {/* --- MODAL PARA IMAGEN AMPLIADA --- */}
       <div
         className="modal fade"
         id="imageModal"
@@ -75,23 +74,28 @@ export const Carousel = ({ images }) => {
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered modal-lg">
-          <div className="modal-content bg-dark">
-            <div className="modal-body p-0">
-              <img
-                src={selectedImg}
-                alt="Ampliada"
-                className="img-fluid w-100 rounded-2"
-              />
+          <div className="modal-content bg-dark border-0">
+            <div className="modal-body p-0 position-relative">
+              <button
+                type="button"
+                className="btn-close btn-close-white position-absolute top-0 end-0 m-3 shadow-none"
+                data-bs-dismiss="modal"
+                aria-label="Cerrar"
+                style={{ zIndex: 1051 }}
+              ></button>
+
+              {selectedImg && (
+                <img
+                  src={selectedImg}
+                  alt="Vista ampliada"
+                  className="img-fluid w-100 rounded-2"
+                />
+              )}
             </div>
-            <button
-              type="button"
-              className="btn-close position-absolute top-0 end-0 m-3 btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Cerrar"
-            ></button>
+
           </div>
         </div>
       </div>
     </>
   );
-};
+}
