@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar";
 import { AcercaD } from "./pages/AcercaD";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Footer } from "./components/Footer";
+import { Ticker } from "./components/Ticker"; // <-- Importamos el Ticker
 import { Proyectos } from "./pages/Proyectos";
 import Salas from "./pages/Salas";
 import Sofas from "./pages/Sofas";
@@ -13,11 +14,12 @@ import Cocinas from "./pages/Cocinas";
 import Closets from "./pages/Closets";
 import Camas from "./pages/Camas";
 import Escritorios from "./pages/Escritorios";
+import { ScrollToTop } from "./components/ScrollToTop";
 
-// Renderizamos el componente de rutas
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,6 +32,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/proyectos/camas" element={<Camas />} />
         <Route path="/proyectos/escritorios" element={<Escritorios />} />
       </Routes>
+      
+      {/* El Ticker aparece antes del Footer */}
       <Footer />
     </Router>
   </StrictMode>
