@@ -2,9 +2,10 @@ import React from 'react';
 import '../styles/Productos.css';
 
 export const Productos = () => {
-  // 1. Definición de variables
+  // 1. Datos para los filtros
   const categoriasFiltros = ["ESTRUCTURA", "CUERO", "TELA", "TERRAZO"];
 
+  // 2. Tu lista de productos real
   const listaProductos = [
     { id: 1, nombre: "SILLA NÓRDICA", precio: "$1.200.000", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000" },
     { id: 2, nombre: "MESA DE CENTRO TERRAZO", precio: "$2.500.000", img: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=1000" },
@@ -30,7 +31,7 @@ export const Productos = () => {
           <i className="bi bi-list"></i>
         </div>
         
-        {/* AQUÍ SE USA listaProductos.length PARA EL CONTADOR ACUMULADOR */}
+        {/* CONTADOR DINÁMICO (Usando listaProductos) */}
         <div className="total-count">{listaProductos.length} PRODUCTOS</div>
         
         <div className="sort-dropdown">
@@ -41,9 +42,8 @@ export const Productos = () => {
       <div className="container-fluid px-0">
         <div className="row g-0">
           
-          {/* BARRA LATERAL (ASIDE) */}
+          {/* ASIDE (Aquí usamos categoriasFiltros para que no falle el check) */}
           <aside className="col-md-2 border-end filter-column">
-            {/* AQUÍ ES DONDE USAMOS categoriasFiltros.map PARA QUITAR EL ERROR */}
             {categoriasFiltros.map((cat) => (
               <div key={cat} className="filter-accordion-item">
                 <span>{cat}</span>
