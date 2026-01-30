@@ -1,56 +1,57 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 export const Footer = () => {
   return (
-    <footer className="bg-dark text-white mt-5 pt-4 pb-3">
+    <footer className="footer-container">
       <div className="container">
-        <div className="row text-center text-md-start">
-          <div className="col-md-4 mb-4">
-            <h5 className="fw-bold">Carpintería La 16</h5>
-            <p className="small">
-              Diseñamos y fabricamos muebles con amor, precisión y madera de la
-              buena.
+        <div className="row">
+          
+          {/* Columna 1: Newsletter */}
+          <div className="col-md-3 mb-4">
+            <h6 className="footer-title">SUSCRÍBETE A NUESTRO NEWSLETTER</h6>
+            <div className="newsletter-form mt-3">
+              <input type="email" placeholder="Correo electrónico" className="footer-input" />
+              <button className="footer-btn">SUSCRIBIRSE</button>
+            </div>
+          </div>
+
+          {/* Columna 2: Sobre Nosotros */}
+          <div className="col-md-3 mb-4 px-md-4">
+            <h6 className="footer-title">SOBRE NOSOTROS</h6>
+            <p className="footer-text mt-3">
+              Fusionamos el diseño contemporáneo con técnicas artesanales tradicionales de Colombia para crear piezas únicas.
             </p>
           </div>
 
-          <div className="col-md-4 mb-4">
-            <h6 className="fw-semibold">Contacto</h6>
-            <ul className="list-unstyled small">
-              <li>📍 Espinal, Tolima</li>
-              <li>📞 +57 324 676 8211</li>
-              <li>📧 aslanfto2018@gmail.com</li>
+          {/* Columna 3: Producto */}
+          <div className="col-md-3 mb-4">
+            <h6 className="footer-title">PRODUCTO</h6>
+            <ul className="footer-list mt-3">
+              <li><Link to="/">Manual de cuidados</Link></li>
+              <li><Link to="/">Guía de Materiales</Link></li>
             </ul>
           </div>
 
-          <div className="col-md-4 mb-4">
-            <h6 className="fw-semibold">Síguenos</h6>
-            <div className="d-flex justify-content-center justify-content-md-start gap-3">
-              <ul className="list-unstyled d-flex gap-3 mb-0">
-                <li>
-                  <a href="#" className="text-white">
-                    Facebook
-                    <i className="bi bi-facebook ms-1"></i>
-
-                    <a href="#" className="text-white">
-                      Instagram
-                      <i className="bi bi-instagram ms-1"></i>
-                    </a>
-                    
-                    <a href="#" className="text-white">
-                      Tiktok
-                    </a>
-                    <i className="bi bi-tiktok ms-1"></i>
-
-                  </a>
-               </li>
-              </ul>
-            </div>
+          {/* Columna 4: Ayuda */}
+          <div className="col-md-3 mb-4">
+            <h6 className="footer-title">AYUDA</h6>
+            <ul className="footer-list mt-3">
+              <li><Link to="/">Política de privacidad</Link></li>
+              <li><Link to="/">Términos de servicio</Link></li>
+            </ul>
           </div>
         </div>
 
-        <hr className="border-secondary" />
-
-        <div className="text-center small">
-          &copy; {new Date().getFullYear()} Carpintería La 16. Todos los
-          derechos reservados.
+        {/* Sección Inferior: Redes y Copyright */}
+        <div className="footer-bottom mt-5">
+          <div className="social-links mb-3">
+            <a href="#"><i className="bi bi-facebook"></i></a>
+            <a href="#"><i className="bi bi-instagram"></i></a>
+            <a href="#"><i className="bi bi-pinterest"></i></a>
+            <a href="#"><i className="bi bi-linkedin"></i></a>
+          </div>
+          <p className="copyright">© 2026 — CARPINTERÍA LA 16</p>
         </div>
       </div>
     </footer>
