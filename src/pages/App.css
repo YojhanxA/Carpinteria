@@ -1,3 +1,32 @@
+/* Solucion Footer */
+/* 1. Aseguramos que el layout Flexbox funcione */
+#root {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+/* 2. El contenido debe crecer */
+.main-content {
+    flex: 1 0 auto !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. FIX PARA EL NAVBAR ABSOLUTO */
+/* Esto evita que el contenido se meta debajo del navbar en páginas que NO son el Home */
+.main-content:not(:has(.hero-slider-fullscreen)) {
+    padding-top: 180px;
+    /* Ajusta este valor según el alto de tu Navbar */
+}
+
+/* 4. REFUERZO DEL FOOTER */
+.footer-container {
+    flex-shrink: 0 !important;
+    margin-top: auto !important;
+    /* Lo empuja al fondo sí o sí */
+}
+
 /* ==========================================================================
    1. VARIABLES Y CONFIGURACIÓN GLOBAL
    ========================================================================== */
@@ -16,19 +45,29 @@ body {
 }
 
 /* ==========================================================================
-   2. NAVBAR (MODO OVERLAY / TRANSPARENTE)
+   2. NAVBAR (MODO ADAPTABLE)
    ========================================================================== */
 
-/* Hace que el Navbar flote sobre el Slider sin ocupar espacio real */
+   
 header,
 .navbar-overlay {
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: none;
+    /* Por defecto para páginas internas: */
+    position: relative; 
+    background-color: #3e4453; /* Color oscuro de tu marca */
+}
+
+/* Solo cuando estamos en el HOME (sobre el slider) */
+/* El selector :has detecta si el slider existe en la página */
+body:has(.hero-slider-fullscreen) .navbar-overlay,
+body:has(.hero-slider) .navbar-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: transparent !important;
-    border: none;
+    background: transparent;
 }
 
 /* Tipografía del Logo */
@@ -38,23 +77,18 @@ header,
     font-weight: 600;
     letter-spacing: 8px;
     font-size: 2rem;
-    color: var(--blanco) !important;
+    color: var(--blanco);
     text-transform: uppercase;
     margin: 0;
     text-decoration: none;
 }
 
-/* Líneas divisorias del menú */
-.nav-inferior-overlay,
-nav.border-top.border-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-}
+
 
 /* Enlaces de navegación */
 .nav-link-white,
 .nav-link-custom {
-    color: var(--blanco) !important;
+    color: var(--blanco);
     text-decoration: none;
     font-size: 0.75rem;
     font-weight: 500;
@@ -64,15 +98,10 @@ nav.border-top.border-bottom {
     transition: opacity 0.3s;
 }
 
-.nav-link-white:hover,
-.nav-link-custom:hover {
-    opacity: 0.7;
-}
-
-/* Iconos (Buscar, Usuario, etc.) */
-.iconos-header i {
-    color: var(--blanco) !important;
-    font-size: 1.2rem;
+/* Líneas divisorias */
+.nav-inferior-overlay {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* ==========================================================================
@@ -407,7 +436,8 @@ nav.border-top.border-bottom {
 
 .la16-img-container {
     width: 100%;
-    aspect-ratio: 1 / 1.1; /* Proporción ideal para muebles */
+    aspect-ratio: 1 / 1.1;
+    /* Proporción ideal para muebles */
     background-color: #f2f2f2;
     overflow: hidden;
 }
@@ -420,7 +450,8 @@ nav.border-top.border-bottom {
 }
 
 .la16-card:hover .la16-img-container img {
-    transform: scale(1.05); /* Zoom suave al pasar el mouse */
+    transform: scale(1.05);
+    /* Zoom suave al pasar el mouse */
 }
 
 /* 4. Info de Producto (Nombre y Precio) */
@@ -450,7 +481,8 @@ nav.border-top.border-bottom {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 60px; /* Tamaño del círculo blanco */
+    width: 60px;
+    /* Tamaño del círculo blanco */
     height: 60px;
     background-color: #ffffff;
     border-radius: 50%;
@@ -459,8 +491,9 @@ nav.border-top.border-bottom {
     justify-content: center;
     z-index: 10;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    opacity: 0; /* Invisibles por defecto */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    /* Invisibles por defecto */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -470,8 +503,13 @@ nav.border-top.border-bottom {
 }
 
 /* Posicionamiento lateral */
-.la16-prev { left: 30px; }
-.la16-next { right: 30px; }
+.la16-prev {
+    left: 30px;
+}
+
+.la16-next {
+    right: 30px;
+}
 
 /* Estilo del icono (imagen dentro del círculo) */
 .arrow-icon {
@@ -482,7 +520,8 @@ nav.border-top.border-bottom {
 
 /* Efecto al pasar el mouse sobre el botón mismo */
 .custom-arrow:hover {
-    background-color: #3e4453; /* El círculo se vuelve oscuro */
+    background-color: #3e4453;
+    /* El círculo se vuelve oscuro */
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -492,7 +531,8 @@ nav.border-top.border-bottom {
 }
 
 /* Ocultar flechas originales de Swiper para que no se dupliquen */
-.swiper-button-next, 
+.swiper-button-next,
 .swiper-button-prev {
     display: none !important;
 }
+

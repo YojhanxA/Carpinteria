@@ -9,7 +9,8 @@ const productos = [
     { id: 1, nombre: "SILLA MATTE TELA", precio: "$1.450.000", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1200" },
     { id: 2, nombre: "SILLA DANKE ROBLE", precio: "$1.120.000", img: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1200" },
     { id: 3, nombre: "SILLA DE BARRA KOVY CUERO", precio: "$560.000", img: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200" },
-    { id: 4, nombre: "SILLA CON BRAZOS ROCK CUERO", precio: "$920.000", img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=1200" }
+    { id: 4, nombre: "SILLA CON BRAZOS ROCK CUERO", precio: "$920.000", img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=1200" },
+    { id: 5, nombre: "SILLA CON BRAZOS ROCK CUERO", precio: "$920.000", img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=1200" }
 ];
 
 export const FeaturedProducts = () => {
@@ -20,7 +21,7 @@ export const FeaturedProducts = () => {
     return (
         <section className="la16-featured-section">
             <h2 className="la16-title text-center">PRODUCTOS DESTACADOS</h2>
-            
+
             <div className="la16-swiper-outer">
                 <Swiper
                     modules={[Navigation]}
@@ -29,7 +30,7 @@ export const FeaturedProducts = () => {
                         prevEl: '.la16-prev',
                     }}
                     loop={true}
-                    spaceBetween={0} 
+                    spaceBetween={0}
                     slidesPerView={1}
                     breakpoints={{
                         640: { slidesPerView: 2 },

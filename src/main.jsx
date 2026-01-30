@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
+import { Productos } from "./pages/Productos";
 import { Navbar } from "./components/Navbar";
 import { AcercaD } from "./pages/AcercaD";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")).render(
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<Productos />} />
         <Route path="/acerca" element={<AcercaD />} />
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/proyectos/salas" element={<Salas />} />
@@ -32,7 +34,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/proyectos/camas" element={<Camas />} />
         <Route path="/proyectos/escritorios" element={<Escritorios />} />
       </Routes>
-      
+
       {/* El Ticker aparece antes del Footer */}
       <Footer />
     </Router>
