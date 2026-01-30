@@ -19,7 +19,7 @@ export const Home = () => {
   }, [fondos.length]);
 
   return (
-    <main style={{ backgroundColor: 'white', minHeight: '100vh' }}>
+    <main style={{ backgroundColor: 'white' }}>
       {/* 1. SECCIÓN HERO / SLIDER */}
       <section className="hero-slider-fullscreen">
         {fondos.map((imagen, i) => (
@@ -37,7 +37,7 @@ export const Home = () => {
             DESDE EL CORAZÓN DEL TALLER
           </span>
           <h2 className="display-1 fw-light mb-4 text-uppercase">
-            Carpintería La 16
+            Carpintería Y Tapicería La 16
           </h2>
 
           <div className="container position-absolute bottom-0 mb-5 d-none d-md-block">
