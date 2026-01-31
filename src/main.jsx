@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Estilos
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Styles/productos.css";
+import "./styles/loading.css";
 
 // Páginas
 import { Home } from "./pages/Home";
