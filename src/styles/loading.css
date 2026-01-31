@@ -1,0 +1,81 @@
+.loading-container {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Degradado que imita tonos de madera noble */
+    background: radial-gradient(circle, #5d4037 0%, #3e2723 100%) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 9999999 !important;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loading-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+    animation: floating 3s ease-in-out infinite;
+}
+
+.loading-title {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 8px;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.loading-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+/* Contenedor de la barra */
+.progress-container {
+    width: 250px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+/* La barra que se mueve */
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: #d7ccc8; /* Color madera clara */
+    box-shadow: 0 0 10px rgba(215, 204, 200, 0.5);
+    animation: fillProgress 1.2s ease-in-out forwards;
+}
+
+.loading-text {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+/* Animaciones */
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fillProgress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
