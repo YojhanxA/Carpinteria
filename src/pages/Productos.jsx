@@ -1,6 +1,6 @@
 import React from 'react';
 // IMPORTANTE: Asegúrate de que el archivo en la carpeta styles se llame productos.css (en minúsculas)
-import '../styles/productos.css';
+import '../Styles/productos.css';
 
 export const Productos = () => {
     // 1. Datos para los filtros
