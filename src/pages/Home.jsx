@@ -1,26 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Gallery } from "../components/Gallery";
 import { Ticker } from "../components/Ticker";
 import { FeaturedProducts } from "../components/FeaturedProducts";
-import LoadingScreen from "../components/LoadingScreen"; // 1. Importamos el componente
+import { NuestraEsencia } from "../components/NuestraEsencia";
 
 export const Home = () => {
   const [index, setIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true); // 2. Estado para la carga
 
   const fondos = [
     "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1974&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format&fit=crop"
   ];
-
-  // 3. Efecto para controlar la pantalla de carga
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // Se mostrará por 2 segundos
-
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const intervalo = setInterval(() => {
@@ -29,16 +18,11 @@ export const Home = () => {
     return () => clearInterval(intervalo);
   }, [fondos.length]);
 
-  // 4. Si está cargando, mostramos la pantalla de carga
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
-
-  // 5. Si ya cargó, mostramos todo el contenido original
   return (
     <main style={{ backgroundColor: 'white' }}>
-
+      {/* 1. SECCIÓN HERO / SLIDER */}
       <section className="hero-slider-fullscreen">
+        {/* CORRECCIÓN AQUÍ: Quitamos los tres puntos (...) */}
         {fondos.map((imagen, i) => (
           <div
             key={i}
@@ -67,22 +51,14 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* 2. NUESTRA ESENCIA */}
+      <NuestraEsencia />
 
-      <section className="py-5">
-        <div className="container text-center mb-5">
-          <h3 className="fw-light text-uppercase mb-5" style={{ letterSpacing: '5px' }}>
-            Nuestra Colección
-          </h3>
-          <Gallery />
-        </div>
-      </section>
-
-
+      {/* 3. TICKER */}
       <Ticker />
 
-
+      {/* 4. PRODUCTOS DESTACADOS */}
       <FeaturedProducts />
-
 
     </main>
   );
