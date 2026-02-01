@@ -9,7 +9,7 @@ export const Footer = () => {
           
           {/* Columna 1: Newsletter */}
           <div className="col-md-3 mb-4">
-            <h6 className="footer-title">SUSCRÍBETE A NUESTRO NEWSLETTER</h6>
+            <h6 className="footer-title">Registrate</h6>
             <div className="newsletter-form mt-3">
               <input type="email" placeholder="Correo electrónico" className="footer-input" />
               <button className="footer-btn">SUSCRIBIRSE</button>
@@ -20,7 +20,7 @@ export const Footer = () => {
           <div className="col-md-3 mb-4 px-md-4">
             <h6 className="footer-title">SOBRE NOSOTROS</h6>
             <p className="footer-text mt-3">
-              Fusionamos el diseño contemporáneo con técnicas artesanales tradicionales de Colombia para crear piezas únicas.
+              CARPINTERIA UBICADO EN EL ESPINAL - TOLIMA, OFRECIENDO PRODUCTOS DE ALTA CALIDAD Y DISEÑO EXCLUSIVO.
             </p>
           </div>
 
@@ -28,8 +28,9 @@ export const Footer = () => {
           <div className="col-md-3 mb-4">
             <h6 className="footer-title">PRODUCTO</h6>
             <ul className="footer-list mt-3">
-              <li><Link to="/">Manual de cuidados</Link></li>
               <li><Link to="/">Guía de Materiales</Link></li>
+              <li><Link to="/">Muebles a Medida</Link></li> 
+              <li><Link to="/">Diseños</Link></li>
             </ul>
           </div>
 
@@ -46,6 +47,7 @@ export const Footer = () => {
         {/* Sección Inferior: Redes y Copyright */}
         <div className="footer-bottom mt-5">
           <div className="social-links mb-3">
+             <h6 className="footer-title">NUESTRAS REDES SOCIALES</h6>
             <a href="#"><i className="bi bi-facebook"></i></a>
             <a href="#"><i className="bi bi-instagram"></i></a>
             <a href="#"><i className="bi bi-pinterest"></i></a>

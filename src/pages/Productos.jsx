@@ -1,68 +1,104 @@
-import React from 'react';
-// IMPORTANTE: Asegúrate de que el archivo en la carpeta styles se llame productos.css (en minúsculas)
+import React, { useState } from 'react';
 import '../styles/productos.css';
 
 export const Productos = () => {
-    // 1. Datos para los filtros
-    const categoriasFiltros = ["ESTRUCTURA", "CUERO", "TELA", "TERRAZO"];
+    const [filtroActivo, setFiltroActivo] = useState("TODOS");
+    const [layout, setLayout] = useState("grid-4");
+    // 1. Nuevo estado para el ordenamiento
+    const [orden, setOrden] = useState("DEFAULT");
 
-    // 2. Tu lista de productos real con links de imagen estables
+    const categoriasFiltros = ["TODOS", "ESTRUCTURA", "CUERO", "TELA", "TERRAZO"];
+
     const listaProductos = [
-        { id: 1, nombre: "SILLA NÓRDICA", precio: "$1.200.000", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=1000" },
-        { id: 2, nombre: "MESA DE CENTRO TERRAZO", precio: "$2.500.000", img: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&q=80&w=1000" },
-        { id: 3, nombre: "POLTRONA CUERO", precio: "$3.800.000", img: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&q=80&w=1000" }
+        { id: 1, categoria: "ESTRUCTURA", nombre: "SILLA NÓRDICA", precio: 1200000, img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=1000" },
+        { id: 2, categoria: "TERRAZO", nombre: "MESA DE CENTRO TERRAZO", precio: 2500000, img: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?auto=format&fit=crop&q=80&w=1000" },
+        { id: 3, categoria: "CUERO", nombre: "POLTRONA CUERO", precio: 3800000, img: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&q=80&w=1000" }
     ];
+
+    // 2. Lógica combinada: Primero filtramos, luego ordenamos
+    const procesarProductos = () => {
+        let filtrados = filtroActivo === "TODOS" 
+            ? [...listaProductos] 
+            : listaProductos.filter(p => p.categoria === filtroActivo);
+
+        if (orden === "PRECIO_MIN") {
+            filtrados.sort((a, b) => a.precio - b.precio);
+        } else if (orden === "PRECIO_MAX") {
+            filtrados.sort((a, b) => b.precio - a.precio);
+        } else if (orden === "ALFA") {
+            filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+        }
+        return filtrados;
+    };
+
+    const productosAMostrar = procesarProductos();
+
+    const getLayoutClass = () => {
+        if (layout === "grid-2") return "col-4"; 
+        if (layout === "grid-list") return "col-12 layout-list"; 
+        return "col-6 col-lg-3"; 
+    };
 
     return (
         <div className="productos-page-container">
-            {/* CABECERA */}
             <section className="productos-hero-header">
-                <nav className="breadcrumb-nav">
-                    INICIO / TIENDA / <span className="current">PRODUCTOS</span>
-                </nav>
+                <nav className="breadcrumb-nav">INICIO / TIENDA / <span className="current">PRODUCTOS</span></nav>
                 <h1 className="productos-display-title">PRODUCTOS</h1>
             </section>
 
-            {/* BARRA DE UTILIDADES */}
             <div className="productos-utility-bar">
                 <div className="view-icons d-none d-md-flex">
-                    <i className="bi bi-grid-fill"></i>
-                    <i className="bi bi-grid-3x3-gap"></i>
-                    <i className="bi bi-list"></i>
+                    <i className={`bi bi-grid-fill ${layout === 'grid-2' ? 'active-view' : ''}`} onClick={() => setLayout('grid-2')}></i>
+                    <i className={`bi bi-grid-3x3-gap ${layout === 'grid-4' ? 'active-view' : ''}`} onClick={() => setLayout('grid-4')}></i>
+                    <i className={`bi bi-list ${layout === 'grid-list' ? 'active-view' : ''}`} onClick={() => setLayout('grid-list')}></i>
                 </div>
 
-                <div className="total-count">{listaProductos.length} PRODUCTOS</div>
+                <div className="total-count">{productosAMostrar.length} PRODUCTOS</div>
 
+                {/* 3. Dropdown de ordenamiento funcional */}
                 <div className="sort-dropdown">
-                    ORDENAR POR <i className="bi bi-chevron-down ms-1"></i>
+                    <select 
+                        className="sort-select" 
+                        value={orden} 
+                        onChange={(e) => setOrden(e.target.value)}
+                    >
+                        <option value="DEFAULT">ORDENAR POR</option>
+                        <option value="PRECIO_MIN">PRECIO: MENOR A MAYOR</option>
+                        <option value="PRECIO_MAX">PRECIO: MAYOR A MENOR</option>
+                        <option value="ALFA">NOMBRE: A-Z</option>
+                    </select>
                 </div>
             </div>
 
             <div className="container-fluid px-0">
                 <div className="row g-0">
-
-                    {/* COLUMNA DE FILTROS */}
                     <aside className="col-md-2 border-end filter-column">
                         {categoriasFiltros.map((cat) => (
-                            <div key={cat} className="filter-accordion-item">
+                            <div 
+                                key={cat} 
+                                className={`filter-accordion-item ${filtroActivo === cat ? 'active-filter' : ''}`}
+                                onClick={() => setFiltroActivo(cat)}
+                            >
                                 <span>{cat}</span>
-                                <i className="bi bi-chevron-down"></i>
+                                <i className={`bi ${filtroActivo === cat ? 'bi-chevron-right' : 'bi-chevron-down'}`}></i>
                             </div>
                         ))}
                     </aside>
 
-                    {/* GRILLA DE PRODUCTOS */}
                     <main className="col-md-10 products-display-area">
                         <div className="row g-0">
-                            {listaProductos.map((prod) => (
-                                <div className="col-6 col-lg-3 product-border-grid" key={prod.id}>
+                            {productosAMostrar.map((prod) => (
+                                <div className={`${getLayoutClass()} product-border-grid`} key={prod.id}>
                                     <div className="item-card">
                                         <div className="image-box">
                                             <img src={prod.img} alt={prod.nombre} loading="lazy" />
                                         </div>
                                         <div className="text-box">
                                             <h3 className="item-name">{prod.nombre}</h3>
-                                            <p className="item-price">{prod.precio}</p>
+                                            <p className="item-price">
+                                                {/* Formateo de precio a moneda */}
+                                                ${prod.precio.toLocaleString('es-CO')}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
