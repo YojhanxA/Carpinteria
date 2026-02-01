@@ -1,0 +1,55 @@
+/* Estilos para Nuestra Esencia */
+.essencia-section {
+    background: radial-gradient(circle at center, #ffffff 0%, #fcfcfc 100%);
+}
+
+.essencia-card {
+    transition: all 0.5s ease;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.essencia-card:hover {
+    background-color: #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    transform: translateY(-10px);
+}
+
+.pilar-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #3e4453;
+    opacity: 0.3;
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pilar-icon {
+    font-size: 2.5rem;
+    color: #3e4453;
+    transition: transform 0.4s ease;
+}
+
+.essencia-card:hover .pilar-icon {
+    transform: scale(1.1);
+}
+
+/* El botón que conecta con la galería de fotos */
+.btn-premium-outline {
+    text-decoration: none;
+    color: #3e4453;
+    border: 1px solid #3e4453;
+    padding: 14px 40px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    display: inline-block;
+}
+
+.btn-premium-outline:hover {
+    background-color: #3e4453;
+    color: white;
+    letter-spacing: 4px;
+}

@@ -10,7 +10,6 @@ import "./styles/loading.css";
 // Páginas
 import { Home } from "./pages/Home";
 import { Productos } from "./pages/Productos";
-
 import { Proyectos } from "./pages/Proyectos";
 import Salas from "./pages/Salas";
 import Sofas from "./pages/Sofas";
