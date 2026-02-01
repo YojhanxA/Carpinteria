@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/proyectos.css';
+import '../styles/proyectos.css'; 
 
 export const Proyectos = () => {
+    // Definimos las categorías aquí arriba
     const categorias = [
         { nombre: "SALAS", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=1200", link: "/proyectos/salas" },
         { nombre: "ESCRITORIOS", img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&q=80&w=1200", link: "/proyectos/escritorios" },
@@ -14,13 +15,13 @@ export const Proyectos = () => {
 
     return (
         <div className="proyectos-container">
-            {/* 1. HERO SECTION */}
+            {/* HERO SECTION DE PROYECTOS - TAL CUAL ME LO PASASTE */}
             <section className="hero-slider-fullscreen projects-hero">
-                <div className="hero-slide active" style={{
+                <div className="hero-slide active" style={{ 
                     backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000')`,
-                    opacity: '0.5'
+                    opacity: '0.5' 
                 }}></div>
-
+                
                 <div className="hero-overlay d-flex flex-column justify-content-center align-items-center text-white">
                     <div className="text-center fade-in">
                         <span className="letter-spacing-3 mb-3 d-block" style={{ fontSize: '0.8rem' }}>
@@ -36,17 +37,7 @@ export const Proyectos = () => {
                 </div>
             </section>
 
-            {/* 2. TÍTULO DE TRANSICIÓN (NUESTRA COLECCIÓN) */}
-            <div className="container mt-5 pt-5 mb-2">
-                <div className="text-center">
-                    <h2 className="fw-light text-uppercase mb-3" style={{ letterSpacing: '8px', color: '#3e4453', fontSize: '1.8rem' }}>
-                        Nuestra Colección
-                    </h2>
-                    <div className="mx-auto" style={{ width: '60px', height: '1px', backgroundColor: '#3e4453', opacity: '0.4' }}></div>
-                </div>
-            </div>
-
-            {/* 3. GRID DE CATEGORÍAS */}
+            {/* AQUÍ ESTÁ LA MAGIA: LA GALERÍA IMPRESIONANTE */}   
             <main className="container-fluid projects-main-content py-5">
                 <div className="container">
                     <div className="projects-grid-wrapper">
