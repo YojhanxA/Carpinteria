@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Ticker } from "../components/Ticker";
 import { FeaturedProducts } from "../components/FeaturedProducts";
 import { NuestraEsencia } from "../components/NuestraEsencia";
+import { Gallery } from "../components/Gallery";
 
 export const Home = () => {
   const [index, setIndex] = useState(0);
@@ -50,6 +51,7 @@ export const Home = () => {
           </div>
         </div>
       </section>
+
 
       {/* 2. NUESTRA ESENCIA */}
       <NuestraEsencia />
