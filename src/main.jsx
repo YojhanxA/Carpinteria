@@ -10,7 +10,7 @@ import "./styles/loading.css";
 // Páginas
 import { Home } from "./pages/Home";
 import { Productos } from "./pages/Productos";
-import { AcercaD } from "./pages/AcercaD";
+
 import { Proyectos } from "./pages/Proyectos";
 import Salas from "./pages/Salas";
 import Sofas from "./pages/Sofas";
@@ -58,7 +58,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Productos />} />
-        <Route path="/acerca" element={<AcercaD />} />
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/proyectos/salas" element={<Salas />} />
         <Route path="/proyectos/sofas" element={<Sofas />} />
