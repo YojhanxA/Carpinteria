@@ -1,30 +1,26 @@
-/* Solucion Footer */
-/* 1. Aseguramos que el layout Flexbox funcione */
+/* ==========================================================================
+   SOLUCIÓN ESTRUCTURAL (FOOTER & CONTENT)
+   ========================================================================== */
 #root {
     display: flex !important;
     flex-direction: column !important;
     min-height: 100vh !important;
 }
 
-/* 2. El contenido debe crecer */
 .main-content {
     flex: 1 0 auto !important;
     display: flex;
     flex-direction: column;
 }
 
-/* 3. FIX PARA EL NAVBAR ABSOLUTO */
-/* Esto evita que el contenido se meta debajo del navbar en páginas que NO son el Home */
+/* FIX PARA EL NAVBAR ABSOLUTO: Evita que el contenido se meta debajo del navbar */
 .main-content:not(:has(.hero-slider-fullscreen)) {
     padding-top: 180px;
-    /* Ajusta este valor según el alto de tu Navbar */
 }
 
-/* 4. REFUERZO DEL FOOTER */
 .footer-container {
     flex-shrink: 0 !important;
     margin-top: auto !important;
-    /* Lo empuja al fondo sí o sí */
 }
 
 /* ==========================================================================
@@ -33,6 +29,7 @@
 :root {
     --fuente-principal: 'Montserrat', sans-serif;
     --blanco: #ffffff;
+    --color-marca: #3e4453;
     --overlay-gallery: rgba(0, 0, 0, 0.45);
     --overlay-gallery-hover: rgba(0, 0, 0, 0.6);
     --transicion-suave: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
@@ -47,21 +44,16 @@ body {
 /* ==========================================================================
    2. NAVBAR (MODO ADAPTABLE)
    ========================================================================== */
-
-   
 header,
 .navbar-overlay {
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease;
     border: none;
-    /* Por defecto para páginas internas: */
-    position: relative; 
-    background-color: #3e4453; /* Color oscuro de tu marca */
+    position: relative;
+    background-color: var(--color-marca);
 }
 
-/* Solo cuando estamos en el HOME (sobre el slider) */
-/* El selector :has detecta si el slider existe en la página */
 body:has(.hero-slider-fullscreen) .navbar-overlay,
 body:has(.hero-slider) .navbar-overlay {
     position: absolute;
@@ -70,7 +62,6 @@ body:has(.hero-slider) .navbar-overlay {
     background: transparent;
 }
 
-/* Tipografía del Logo */
 .brand-logo-central,
 .brand-logo-overlay {
     font-family: var(--fuente-principal);
@@ -83,9 +74,6 @@ body:has(.hero-slider) .navbar-overlay {
     text-decoration: none;
 }
 
-
-
-/* Enlaces de navegación */
 .nav-link-white,
 .nav-link-custom {
     color: var(--blanco);
@@ -98,21 +86,86 @@ body:has(.hero-slider) .navbar-overlay {
     transition: opacity 0.3s;
 }
 
-/* Líneas divisorias */
 .nav-inferior-overlay {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: visible !important;
+    /* IMPORTANTE: Para que el dropdown no se corte */
+}
+
+/* --------------------------------------------------------------------------
+   2.1 SUBMENÚ DROPDOWN (PULIDO PREMIUM)
+   -------------------------------------------------------------------------- */
+.dropdown-custom {
+    position: relative;
+}
+
+.submenu-custom {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    /* Inicia un poco más abajo */
+    background-color: #f9f9f9;
+    /* Fondo claro sutil */
+    min-width: 220px;
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1100;
+    text-align: left;
+    border-top: 3px solid var(--color-marca);
+    /* Detalle de color arriba */
+}
+
+.dropdown-custom:hover .submenu-custom {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    /* Sube suavemente a su posición */
+}
+
+.submenu-custom li a {
+    display: block;
+    padding: 10px 30px;
+    color: var(--color-marca);
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.submenu-custom li a:hover {
+    background-color: #ffffff;
+    padding-left: 35px;
+    /* Efecto de desplazamiento */
+    color: #000;
+}
+
+.dropdown-divider-custom {
+    border-top: 1px solid #e0e0e0;
+    margin: 10px 30px;
+    opacity: 0.6;
+}
+
+.submenu-custom li a.ver-todo {
+    font-weight: 700;
+    color: #000;
 }
 
 /* ==========================================================================
-   3. HERO SLIDER (CABECERA DE PÁGINA)
+   3. HERO SLIDER
    ========================================================================== */
-
 .hero-slider,
 .hero-slider-fullscreen {
     position: relative;
     height: 100vh;
-    /* Cubre toda la pantalla */
     width: 100%;
     overflow: hidden;
     background-color: #000;
@@ -132,11 +185,9 @@ body:has(.hero-slider) .navbar-overlay {
     z-index: 1;
 }
 
-/* Clase activa para el bucle de imágenes */
 .slide.active,
 .hero-slide.active {
     opacity: 0.6;
-    /* Oscurece la imagen de fondo */
     z-index: 2;
 }
 
@@ -151,10 +202,8 @@ body:has(.hero-slider) .navbar-overlay {
 }
 
 /* ==========================================================================
-   4. GALERÍA ESTILO BOUTIQUE (CUADRADA)
+   4. GALERÍA ESTILO BOUTIQUE
    ========================================================================== */
-
-/* Contenedor cuadrado perfecto */
 .gallery-card {
     position: relative;
     aspect-ratio: 1 / 1;
@@ -167,7 +216,6 @@ body:has(.hero-slider) .navbar-overlay {
     display: block;
 }
 
-/* Imagen con zoom al pasar el mouse */
 .gallery-img {
     width: 100%;
     height: 100%;
@@ -176,7 +224,6 @@ body:has(.hero-slider) .navbar-overlay {
     transition: transform var(--transicion-suave);
 }
 
-/* Capa oscura central */
 .gallery-overlay {
     position: absolute;
     top: 0;
@@ -190,7 +237,6 @@ body:has(.hero-slider) .navbar-overlay {
     transition: background-color 0.4s ease;
 }
 
-/* Texto de la categoría */
 .gallery-title {
     color: var(--blanco);
     font-family: var(--fuente-principal);
@@ -203,7 +249,6 @@ body:has(.hero-slider) .navbar-overlay {
     text-align: center;
 }
 
-/* Interacción (Hover) */
 .gallery-link:hover .gallery-img {
     transform: scale(1.1);
 }
@@ -215,7 +260,6 @@ body:has(.hero-slider) .navbar-overlay {
 /* ==========================================================================
    5. UTILIDADES Y ANIMACIONES
    ========================================================================= */
-
 .fade-in {
     animation: fadeIn 2.5s ease forwards;
 }
@@ -240,55 +284,46 @@ body:has(.hero-slider) .navbar-overlay {
     letter-spacing: 2px !important;
 }
 
-/* Ajuste para las frases inspiracionales del Home */
 .footer-phrases {
     padding-bottom: 2rem;
 }
 
-/* Zoom extra para cards genéricas (si las usas) */
 .img-hover-zoom {
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     object-fit: cover;
 }
 
-
 /* ==========================================================================
-   6. FOOTER SLIM (MÁS COMPACTO - LETRA MÁS GRANDE)
+   6. FOOTER SLIM
    ========================================================================== */
 .footer-container {
-    background-color: #3e4453;
+    background-color: var(--color-marca);
     color: #ffffff;
-    /* Padding muy reducido: 25px arriba y 20px abajo */
     padding: 25px 0 20px 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--fuente-principal);
 }
 
 .footer-title {
     font-size: 0.85rem;
-    /* Letra un poco más grande */
     letter-spacing: 1.5px;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 8px;
-    /* Casi pegado al contenido */
 }
 
 .footer-text {
     font-size: 0.9rem;
-    /* Tamaño más legible */
     line-height: 1.3;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
     margin-bottom: 0;
 }
 
-/* Newsletter Ultra-Compacto */
 .footer-input {
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     padding: 6px 10px;
-    /* Muy delgado */
     width: 100%;
     font-size: 0.85rem;
     margin-bottom: 8px;
@@ -303,12 +338,12 @@ body:has(.hero-slider) .navbar-overlay {
     font-size: 0.75rem;
     font-weight: 600;
     width: 100%;
-    /* Botón a lo ancho para que se vea ordenado */
 }
 
-/* Enlaces más visibles y juntos */
 .footer-list {
     margin-bottom: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .footer-list li {
@@ -319,19 +354,15 @@ body:has(.hero-slider) .navbar-overlay {
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     font-size: 0.9rem;
-    /* Tamaño igualado al texto base */
     transition: opacity 0.3s;
 }
 
-/* Parte Inferior (Redes y Copyright) */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 15px;
-    /* Espacio mínimo */
     padding-top: 15px;
     display: flex;
     justify-content: space-between;
-    /* Alinea Redes a un lado y Copyright al otro */
     align-items: center;
     flex-wrap: wrap;
 }
@@ -343,48 +374,41 @@ body:has(.hero-slider) .navbar-overlay {
 .social-links a {
     font-size: 1.1rem;
     margin-right: 15px;
+    color: white;
 }
 
 .copyright {
     font-size: 0.7rem;
     margin-top: 0;
-    /* Eliminamos el salto de línea */
     opacity: 0.7;
 }
 
 /* ==========================================================================
-   7. TICKER DESLIZANTE (INFINITE MARQUEE)
+   7. TICKER DESLIZANTE
    ========================================================================== */
 .ticker-wrapper {
     width: 100%;
     overflow: hidden;
     background-color: #ffffff;
-    /* FONTO BLANCO PURO */
     padding: 20px 0;
-    /* Un poco más de espacio para que respire */
-
 }
 
 .ticker-scroll {
     display: flex;
     white-space: nowrap;
-    /* 40s es una velocidad lenta y elegante. Bájalo a 20s si quieres más rapidez */
     animation: marquee 10s linear infinite;
 }
 
 .ticker-scroll span {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--fuente-principal);
     font-size: 2.2rem;
     font-weight: 300;
-    color: #3e4453;
-    /* Gris azulado para que sea legible pero suave */
+    color: var(--color-marca);
     letter-spacing: 6px;
     padding-right: 80px;
-    /* Espacio entre cada repetición del texto */
     text-transform: uppercase;
 }
 
-/* El truco de la animación infinita */
 @keyframes marquee {
     0% {
         transform: translateX(0);
@@ -395,12 +419,9 @@ body:has(.hero-slider) .navbar-overlay {
     }
 }
 
-
 /* ==========================================================================
-   8 - PRODUCTOS DESTACADOS (FULL WIDTH)
+   8. PRODUCTOS DESTACADOS
    ========================================================================== */
-
-/* 1. Contenedor Principal (Rompe márgenes de Bootstrap) */
 .la16-featured-section {
     width: 100vw !important;
     position: relative;
@@ -415,29 +436,22 @@ body:has(.hero-slider) .navbar-overlay {
 
 .la16-title {
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--fuente-principal);
     letter-spacing: 6px;
     font-size: 1.2rem;
     margin-bottom: 50px;
-    color: #3e4453;
+    color: var(--color-marca);
     text-transform: uppercase;
 }
 
-/* 2. Wrapper del Swiper y Posicionamiento de Flechas */
 .la16-swiper-outer {
     position: relative;
     width: 100% !important;
 }
 
-/* 3. Tarjeta de Producto */
-.la16-card {
-    width: 100%;
-}
-
 .la16-img-container {
     width: 100%;
     aspect-ratio: 1 / 1.1;
-    /* Proporción ideal para muebles */
     background-color: #f2f2f2;
     overflow: hidden;
 }
@@ -451,10 +465,8 @@ body:has(.hero-slider) .navbar-overlay {
 
 .la16-card:hover .la16-img-container img {
     transform: scale(1.05);
-    /* Zoom suave al pasar el mouse */
 }
 
-/* 4. Info de Producto (Nombre y Precio) */
 .la16-info {
     text-align: center;
     padding: 30px 10px;
@@ -466,7 +478,7 @@ body:has(.hero-slider) .navbar-overlay {
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: 8px;
-    color: #3e4453;
+    color: var(--color-marca);
 }
 
 .la16-price {
@@ -475,14 +487,11 @@ body:has(.hero-slider) .navbar-overlay {
     font-weight: 300;
 }
 
-/* 5. BOTONES PERSONALIZADOS (FLECHAS CIRCULARES) */
-
 .custom-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 60px;
-    /* Tamaño del círculo blanco */
     height: 60px;
     background-color: #ffffff;
     border-radius: 50%;
@@ -493,16 +502,13 @@ body:has(.hero-slider) .navbar-overlay {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
-    /* Invisibles por defecto */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Mostrar flechas al hacer hover sobre la sección del carrusel */
 .la16-swiper-outer:hover .custom-arrow {
     opacity: 1;
 }
 
-/* Posicionamiento lateral */
 .la16-prev {
     left: 30px;
 }
@@ -511,32 +517,29 @@ body:has(.hero-slider) .navbar-overlay {
     right: 30px;
 }
 
-/* Estilo del icono (imagen dentro del círculo) */
 .arrow-icon {
     width: 28px;
     height: 28px;
     transition: filter 0.3s ease;
 }
 
-/* Efecto al pasar el mouse sobre el botón mismo */
 .custom-arrow:hover {
-    background-color: #3e4453;
-    /* El círculo se vuelve oscuro */
+    background-color: var(--color-marca);
     transform: translateY(-50%) scale(1.1);
 }
 
-/* Cambia el color del icono SVG a blanco mediante filtros cuando el círculo es oscuro */
 .custom-arrow:hover .arrow-icon {
     filter: brightness(0) invert(1);
 }
 
-/* Ocultar flechas originales de Swiper para que no se dupliquen */
 .swiper-button-next,
 .swiper-button-prev {
     display: none !important;
 }
 
-/* PANTALLA DE CARGA - SOLO AÑADIR AL FINAL */
+/* ==========================================================================
+   9. PANTALLA DE CARGA
+   ========================================================================== */
 .loading-container {
     position: fixed !important;
     top: 0 !important;
@@ -544,20 +547,31 @@ body:has(.hero-slider) .navbar-overlay {
     width: 100vw !important;
     height: 100vh !important;
     background-color: white !important;
-    z-index: 9999999 !important; /* Vital para tapar todo */
+    z-index: 9999999 !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
 }
 
 .loading-logo {
-    width: 200px; /* Ajusta a tu gusto */
+    width: 200px;
     height: auto;
     animation: loading-pulse 1.5s infinite ease-in-out;
 }
 
 @keyframes loading-pulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.05); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
 }
