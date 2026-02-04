@@ -25,7 +25,7 @@ import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
 
-const App = () => {
+export const App = () => {
   // Lógica de Sesión: Revisamos si ya cargó en esta pestaña anteriormente
   const [isLoading, setIsLoading] = useState(() => {
     const hasLoaded = sessionStorage.getItem("app_loaded");
