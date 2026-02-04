@@ -9,12 +9,12 @@ const closetsGale = [
     },
     {
         descripcion: "Closet modular con estantes ajustables y espacio para ropa colgada. Perfecto para organizar prendas de diferentes tamaños.",
-        imagen: "/img/Closet2.jpg",
+        imagen: "/img/Closet1.jpeg",
         ruta: "/proyectos/closets",
     },
     {
         descripcion: "Closet de esquina con diseño compacto y funcional. Incluye cajones y compartimentos para accesorios.",
-        imagen: "/img/Closet3.jpg",
+        imagen: "/img/Closet1.jpeg",
         ruta: "/proyectos/closets",
     }
 ];

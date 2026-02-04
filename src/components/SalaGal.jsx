@@ -9,12 +9,12 @@ const salasGale = [
   },
   {
     descripcion: "Sala ejecutiva con muebles de madera oscura y iluminación cálida. Perfecta para reuniones formales.",
-    imagen: "/img/Salas2.jpg",
+    imagen: "/img/Sala1.jpeg",
     ruta: "/proyectos/salas",
   },
   {
     descripcion: "Sala de descanso con sofás cómodos y decoración moderna. Un espacio para relajarse y recargar energías.",
-    imagen: "/img/Salas3.jpg",
+    imagen: "/img/Sala1.jpeg",
     ruta: "/proyectos/salas",
   },
 ];

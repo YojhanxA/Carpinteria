@@ -9,12 +9,12 @@ const CocinaGal = [
   },
   {
     descripcion: "Cocina rústica con armarios de madera oscura y encimeras de granito. Ambiente acogedor.",
-    imagen: "/img/Cocina2.jpg",
+    imagen: "/img/Cocina1.jpeg",
     ruta: "/proyectos/cocinas",
   },
   {
     descripcion: "Cocina minimalista con diseño en blanco puro, máxima eficiencia y elegancia para tu hogar.",
-    imagen: "/img/Cocina3.jpg",
+    imagen: "/img/Cocina1.jpeg",
     ruta: "/proyectos/cocinas",
   },
 ];

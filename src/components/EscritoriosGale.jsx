@@ -9,12 +9,12 @@ const EscritoriosGale = [
   },
   {
     descripcion: "Escritorio moderno con superficie de vidrio templado y estructura metálica. Perfecto para un ambiente contemporáneo.",
-    imagen: "/img/Escritorio 2.jpg",
+    imagen: "/img/Escritorio1.jpeg",
     ruta: "/proyectos/escritorios",
   },
   {
     descripcion: "Escritorio rústico de madera maciza con detalles artesanales. Ideal para un toque natural en tu espacio.",
-    imagen: "/img/Escrito 3.jpg",
+    imagen: "/img/Escritorio1.jpeg",
     ruta: "/proyectos/escritorios",
   },
 ];
