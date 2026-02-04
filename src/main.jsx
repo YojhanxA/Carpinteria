@@ -12,6 +12,7 @@ import { Home } from "./pages/Home";
 import { Productos } from "./pages/Productos";
 import { Proyectos } from "./pages/Proyectos";
 import { AboutUs } from "./pages/AboutUs"; // Importación de tu nueva página
+import { Contact } from "./pages/Contact";
 import Salas from "./pages/Salas";
 import Sofas from "./pages/Sofas";
 import Cocinas from "./pages/Cocinas";
@@ -58,6 +59,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} /> {/* Ruta para AboutUs */}
+        <Route path="/contacto" element={<Contact />} /> {/* Ruta para Contacto */}
         <Route path="/productos" element={<Productos />} />
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/proyectos/salas" element={<Salas />} />
