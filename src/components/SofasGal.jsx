@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const SofasGal = [
   {
     descripcion: "Sofá moderno de tres plazas con tapizado en tela gris y patas de madera. Perfecto para salas de estar contemporáneas.",
-    imagen: "/img/Sofa1.jpg",
+    imagen: "/img/Sofa1.jpeg",
     ruta: "/proyectos/sofas",
   },
   {
     descripcion: "Sofá seccional en L con tapizado en cuero marrón y cojines decorativos. Ideal para espacios amplios y acogedores.",
-    imagen: "/img/Sofa2.jpg",
+    imagen: "/img/Sofa1.jpeg",
     ruta: "/proyectos/sofas",
   },
   {
     descripcion: "Sofá cama funcional con diseño minimalista y tapizado en tela azul. Perfecto para optimizar espacios pequeños.",
-    imagen: "/img/Sofa3.jpg",
+    imagen: "/img/Sofa1.jpeg",
     ruta: "/proyectos/sofas",
   },
 ];

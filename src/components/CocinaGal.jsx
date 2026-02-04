@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const CocinaGal = [
   {
     descripcion: "Cocina moderna con acabados en madera clara y encimeras de cuarzo blanco. Incluye isla central.",
-    imagen: "/img/Cocina1.jpg",
+    imagen: "/img/Cocina1.jpeg",
     ruta: "/proyectos/cocinas",
   },
   {
     descripcion: "Cocina rústica con armarios de madera oscura y encimeras de granito. Ambiente acogedor.",
-    imagen: "/img/Cocina2.jpg",
+    imagen: "/img/Cocina1.jpeg",
     ruta: "/proyectos/cocinas",
   },
   {
     descripcion: "Cocina minimalista con diseño en blanco puro, máxima eficiencia y elegancia para tu hogar.",
-    imagen: "/img/Cocina3.jpg",
+    imagen: "/img/Cocina1.jpeg",
     ruta: "/proyectos/cocinas",
   },
 ];

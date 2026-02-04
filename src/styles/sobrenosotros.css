@@ -1,0 +1,65 @@
+.sobre-nosotros-section {
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.color-marca {
+    color: #3e4453;
+}
+
+/* Composición de imagen con badge */
+.composition-wrapper {
+    padding: 20px;
+}
+
+.main-img-frame {
+    position: relative;
+    z-index: 1;
+}
+
+.main-img-frame img {
+    border-radius: 2px;
+    filter: grayscale(20%);
+    transition: filter 0.5s ease;
+}
+
+.main-img-frame:hover img {
+    filter: grayscale(0%);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    background-color: #3e4453;
+    color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+}
+
+.experience-badge .years {
+    font-size: 2.5rem;
+    font-weight: 200;
+    line-height: 1;
+}
+
+.experience-badge .label {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Animación sutil para el texto */
+.story-content p {
+    animation: fadeInSlide 1s ease-out;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}

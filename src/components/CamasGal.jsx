@@ -10,7 +10,7 @@ const CamasGal = [
 
     {
         descripcion: "Cama individual con diseño minimalista y almacenamiento debajo del colchón. Ideal para habitaciones pequeñas.",
-        imagen: "/img/Cama2.jpg",
+        imagen: "/img/Cama1.jpg",
         ruta: "/proyectos/camas",
     },
 
@@ -18,7 +18,7 @@ const CamasGal = [
 
         descripcion: "Cama king size con dosel y detalles tallados en la madera. Añade un toque de lujo a cualquier habitación.",
 
-        imagen: "/img/Cama3.jpg",
+        imagen: "/img/Cama1.jpg",
 
         ruta: "/proyectos/camas",
 

@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 const EscritoriosGale = [
   {
     descripcion: "Diseño compacto con cajoneras amplias y acabado en madera clara. Ideal para oficinas o estudios en casa.",
-    imagen: "/img/Escritorio 1.jpg",
+    imagen: "/img/Escritorio1.jpeg",
     ruta: "/proyectos/escritorios",
   },
   {
     descripcion: "Escritorio moderno con superficie de vidrio templado y estructura metálica. Perfecto para un ambiente contemporáneo.",
-    imagen: "/img/Escritorio 2.jpg",
+    imagen: "/img/Escritorio1.jpeg",
     ruta: "/proyectos/escritorios",
   },
   {
     descripcion: "Escritorio rústico de madera maciza con detalles artesanales. Ideal para un toque natural en tu espacio.",
-    imagen: "/img/Escrito 3.jpg",
+    imagen: "/img/Escritorio1.jpeg",
     ruta: "/proyectos/escritorios",
   },
 ];

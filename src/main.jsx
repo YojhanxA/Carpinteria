@@ -11,6 +11,8 @@ import "./styles/loading.css";
 import { Home } from "./pages/Home";
 import { Productos } from "./pages/Productos";
 import { Proyectos } from "./pages/Proyectos";
+import { AboutUs } from "./pages/AboutUs"; // Importación de tu nueva página
+import { Contact } from "./pages/Contact";
 import Salas from "./pages/Salas";
 import Sofas from "./pages/Sofas";
 import Cocinas from "./pages/Cocinas";
@@ -24,7 +26,7 @@ import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
 
-const App = () => {
+export const App = () => {
   // Lógica de Sesión: Revisamos si ya cargó en esta pestaña anteriormente
   const [isLoading, setIsLoading] = useState(() => {
     const hasLoaded = sessionStorage.getItem("app_loaded");
@@ -56,6 +58,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} /> {/* Ruta para AboutUs */}
+        <Route path="/contacto" element={<Contact />} /> {/* Ruta para Contacto */}
         <Route path="/productos" element={<Productos />} />
         <Route path="/proyectos" element={<Proyectos />} />
         <Route path="/proyectos/salas" element={<Salas />} />

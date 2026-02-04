@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import "../pages/App.css";
 
 const productos = [
-  { titulo: "SALAS", imagen: "/img/1.jpeg", ruta: "/proyectos/salas" },
-  { titulo: "ESCRITORIOS", imagen: "/img/2.jpeg", ruta: "/proyectos/escritorios" },
-  { titulo: "SOFÁS", imagen: "/img/3.jpeg", ruta: "/proyectos/sofas" },
-  { titulo: "COCINAS", imagen: "/img/4.jpeg", ruta: "/proyectos/cocinas" },
-  { titulo: "CLOSETS", imagen: "/img/5.jpeg", ruta: "/proyectos/closets" },
-  { titulo: "CAMAS", imagen: "/img/Cama.jpg", ruta: "/proyectos/camas" }
+  { titulo: "SALAS", imagen: "/img/Sala1.jpeg", ruta: "/proyectos/salas" },
+  { titulo: "ESCRITORIOS", imagen: "/img/Escritorio1.jpeg", ruta: "/proyectos/escritorios" },
+  { titulo: "SOFÁS", imagen: "/img/Sofa1.jpeg", ruta: "/proyectos/sofas" },
+  { titulo: "COCINAS", imagen: "/img/Cocina1.jpeg", ruta: "/proyectos/cocinas" },
+  { titulo: "CLOSETS", imagen: "/img/Closet1.jpeg", ruta: "/proyectos/closets" },
+  { titulo: "CAMAS", imagen: "/img/Cama1.jpg", ruta: "/proyectos/camas" }
 ];
 
 export const Gallery = () => {
