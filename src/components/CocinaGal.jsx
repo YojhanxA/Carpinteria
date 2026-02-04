@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CocinaGal = [
   {
     descripcion: "Cocina moderna con acabados en madera clara y encimeras de cuarzo blanco. Incluye isla central.",
-    imagen: "/img/Cocina1.jpg",
+    imagen: "/img/Cocina1.jpeg",
     ruta: "/proyectos/cocinas",
   },
   {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const SofasGal = [
   {
     descripcion: "Sofá moderno de tres plazas con tapizado en tela gris y patas de madera. Perfecto para salas de estar contemporáneas.",
-    imagen: "/img/Sofa1.jpg",
+    imagen: "/img/Sofa1.jpeg",
     ruta: "/proyectos/sofas",
   },
   {

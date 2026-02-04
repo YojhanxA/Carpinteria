@@ -6,7 +6,7 @@ export const Navbar = () => {
       <div className="container text-center">
         <div className="d-flex justify-content-between align-items-center mb-3 position-relative">
           <div style={{ width: "40px" }}></div>
-          <div className="d-flex gap-3 text-white iconos-header">
+          <div className="d-flex gap-3 text-white iconos-header"> 
             <i className="bi bi-person cursor-pointer"></i>
             <i className="bi bi-search cursor-pointer"></i>
           </div>
@@ -33,7 +33,7 @@ export const Navbar = () => {
               </ul>
             </li>
 
-            <li className="nav-item"><Link className="nav-link-white" to="/sobre-nosotros">SOBRE NOSOTROS</Link></li>
+            <li className="nav-item"><Link className="nav-link-white" to="/about-us">SOBRE NOSOTROS</Link></li>
             <li className="nav-item"><Link className="nav-link-white" to="/contacto">CONTACTO</Link></li>
           </ul>
         </nav>

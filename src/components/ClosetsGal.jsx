@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const closetsGale = [
     {
         descripcion: "Closet empotrado con puertas corredizas y acabado en madera clara. Ideal para maximizar el espacio de almacenamiento.",
-        imagen: "/img/Closet1.jpg",
+        imagen: "/img/Closet1.jpeg",
         ruta: "/proyectos/closets",
     },
     {

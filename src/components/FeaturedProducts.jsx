@@ -6,11 +6,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 const productos = [
-    { id: 1, nombre: "SILLA MATTE TELA", precio: "$1.450.000", categoria: "tela", img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1200" },
-    { id: 2, nombre: "SILLA DANKE ROBLE", precio: "$1.120.000", categoria: "estructura", img: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1200" },
-    { id: 3, nombre: "SILLA DE BARRA KOVY CUERO", precio: "$560.000", categoria: "cuero", img: "https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200" },
-    { id: 4, nombre: "SILLA CON BRAZOS ROCK CUERO", precio: "$920.000", categoria: "cuero", img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=1200" },
-    { id: 5, nombre: "MESA TERRAZO DARK", precio: "$2.100.000", categoria: "terrazo", img: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=1200" }
+    { id: 1, nombre: "EXHIBIDOR DE ROPA PARA BULLSTORE", precio: "$1.450.000", categoria: "tela", img: "/img/Exhibidor.jpg" },
+    { id: 2, nombre: "SOFA DE 4 PUESTOS", precio: "$1.120.000", categoria: "estructura", img: "/img/SofaExhibicion.jpg" },
+    { id: 3, nombre: "ESCRITORIO MODERNO PARA FRUTIMPORT", precio: "$560.000", categoria: "cuero", img: "/img/EscritorioExhibicion.png" },
+    { id: 4, nombre: "COMEDOR ELEGANTE", precio: "$920.000", categoria: "cuero", img: "/img/ComedorExhibicion.jpg" },
+    { id: 5, nombre: "MESA TERRAZO DARK", precio: "$2.100.000", categoria: "terrazo", img: "/img/CamaExhibicion.jpg" }
 ];
 
 export const FeaturedProducts = () => {

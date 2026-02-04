@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const salasGale = [
   {
     descripcion: "Sala de reuniones con mesa ovalada y sillas ergonómicas. Ideal para sesiones de trabajo colaborativo.",
-    imagen: "/img/Salas1.jpg",
+    imagen: "/img/Sala1.jpeg",
     ruta: "/proyectos/salas",
   },
   {

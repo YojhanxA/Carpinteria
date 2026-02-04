@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const EscritoriosGale = [
   {
     descripcion: "Diseño compacto con cajoneras amplias y acabado en madera clara. Ideal para oficinas o estudios en casa.",
-    imagen: "/img/Escritorio 1.jpg",
+    imagen: "/img/Escritorio1.jpeg",
     ruta: "/proyectos/escritorios",
   },
   {
