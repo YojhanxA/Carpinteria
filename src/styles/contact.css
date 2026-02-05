@@ -1,0 +1,98 @@
+/* Sección Principal */
+.contacto-section {
+    background-color: #fcfcfc;
+    min-height: 100vh;
+    padding-top: 120px; /* Ajustar según tu Navbar */
+}
+
+/* Header */
+.header-line {
+    width: 60px;
+    height: 1px;
+    background-color: #3e4453;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Items de Información */
+.contact-item .label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.contact-item p {
+    font-weight: 300;
+    color: #3e4453;
+    font-size: 1.1rem;
+}
+
+/* Inputs Personalizados (Estilo Minimalista) */
+.custom-input {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    padding: 10px 0;
+    transition: all 0.3s ease;
+    font-weight: 300;
+}
+
+.custom-input:focus {
+    box-shadow: none;
+    border-color: #3e4453;
+    background-color: transparent;
+}
+
+.form-label {
+    color: #3e4453;
+    font-weight: 500;
+}
+
+/* Botón Premium */
+.btn-la16 {
+    background-color: #3e4453;
+    border: none;
+    font-size: 0.85rem;
+    transition: all 0.4s ease;
+}
+
+.btn-la16:hover {
+    background-color: #1a1d24;
+    letter-spacing: 5px; /* Efecto elegante al pasar el mouse */
+}
+
+/* Imagen Decorativa / Mapa */
+.mini-map-placeholder {
+    position: relative;
+    overflow: hidden;
+}
+
+.grayscale-filter {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.mini-map-placeholder:hover .grayscale-filter {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border: 1px solid #3e4453;
+    pointer-events: none;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+/* Utilería */
+.letter-spacing-2 { letter-spacing: 2px; }
+.letter-spacing-3 { letter-spacing: 3px; }

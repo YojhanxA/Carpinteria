@@ -1,121 +1,96 @@
-import React, { useState } from 'react';
+import React from "react";
+import "../styles/contact.css";
 
 export const Contact = () => {
-    const [formData, setFormData] = useState({
-        nombre: '',
-        email: '',
-        telefono: '',
-        mensaje: ''
-    });
+  return (
+    <section className="contacto-section">
+      {/* Cabecera Elegante */}
+      <div className="contacto-header text-center">
+        <div className="container">
+          <span className="letter-spacing-3 text-muted d-block mb-2">PROYECTOS A MEDIDA</span>
+          <h1 className="display-4 fw-light text-uppercase" style={{ letterSpacing: '6px', color: '#3e4453' }}>
+            Hablemos de tu <strong>Idea</strong>
+          </h1>
+          <div className="header-line mx-auto"></div>
+        </div>
+      </div>
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    };
+      <div className="container py-5">
+        <div className="row g-5">
+          
+          {/* Columna Izquierda: Información de Contacto */}
+          <div className="col-lg-5">
+            <div className="info-wrapper pe-lg-5">
+              <h3 className="h4 text-uppercase mb-4" style={{ letterSpacing: '2px' }}>Datos de Contacto</h3>
+              
+              <div className="contact-item mb-4">
+                <span className="label">UBICACIÓN</span>
+                <p>Carrera 16 #XX-XX, Tu Ciudad, País</p>
+              </div>
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Aquí iría la lógica para enviar el formulario
-        console.log('Formulario enviado:', formData);
-        // Limpiar el formulario
-        setFormData({
-            nombre: '',
-            email: '',
-            telefono: '',
-            mensaje: ''
-        });
-        alert('Gracias por tu mensaje. Nos pondremos en contacto pronto.');
-    };
+              <div className="contact-item mb-4">
+                <span className="label">WHATSAPP / TEL</span>
+                <p>+57 300 000 0000</p>
+              </div>
 
-    return (
-        <main className="container py-5" style={{ marginTop: '80px' }}>
-            <div className="row">
-                <div className="col-lg-8 mx-auto">
-                    <h1 className="mb-4 text-center">CONTACTO</h1>
+              <div className="contact-item mb-4">
+                <span className="label">HORARIO DE ATENCIÓN</span>
+                <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br/>Sábados: 9:00 AM - 1:00 PM</p>
+              </div>
 
-                    <div className="row mb-5">
-                        <div className="col-md-6 mb-4">
-                            <div className="card border-0 shadow-sm">
-                                <div className="card-body text-center">
-                                    <i className="bi bi-telephone fs-1 text-dark mb-3"></i>
-                                    <h5 className="card-title">Teléfono</h5>
-                                    <p className="card-text">+57 (8) 2842121</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 mb-4">
-                            <div className="card border-0 shadow-sm">
-                                <div className="card-body text-center">
-                                    <i className="bi bi-envelope fs-1 text-dark mb-3"></i>
-                                    <h5 className="card-title">Email</h5>
-                                    <p className="card-text">info@carpinteriala16.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="card border-0 shadow">
-                        <div className="card-body p-4">
-                            <h4 className="mb-4">Envíanos tu mensaje</h4>
-                            <form onSubmit={handleSubmit}>
-                                <div className="mb-3">
-                                    <label htmlFor="nombre" className="form-label">Nombre</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="nombre"
-                                        name="nombre"
-                                        value={formData.nombre}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email</label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="telefono" className="form-label">Teléfono</label>
-                                    <input
-                                        type="tel"
-                                        className="form-control"
-                                        id="telefono"
-                                        name="telefono"
-                                        value={formData.telefono}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="mensaje" className="form-label">Mensaje</label>
-                                    <textarea
-                                        className="form-control"
-                                        id="mensaje"
-                                        name="mensaje"
-                                        rows="5"
-                                        value={formData.mensaje}
-                                        onChange={handleChange}
-                                        required
-                                    ></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-dark w-100">
-                                    ENVIAR MENSAJE
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+              {/* Mapa o Imagen Decorativa */}
+              <div className="mini-map-placeholder mt-5">
+                <img 
+                  src="/img/SofaExhibicion.jpg" 
+                  alt="Taller La 16" 
+                  className="img-fluid grayscale-filter" 
+                />
+                <div className="map-overlay">
+                  <span>VISITA NUESTRO TALLER</span>
                 </div>
+              </div>
             </div>
-        </main>
-    );
+          </div>
+
+          {/* Columna Derecha: Formulario */}
+          <div className="col-lg-7">
+            <div className="form-container bg-white p-4 p-md-5 shadow-sm">
+              <form>
+                <div className="row">
+                  <div className="col-md-6 mb-4">
+                    <label className="form-label small letter-spacing-2">NOMBRE COMPLETO</label>
+                    <input type="text" className="form-control custom-input" placeholder="Ej. Juan Pérez" />
+                  </div>
+                  <div className="col-md-6 mb-4">
+                    <label className="form-label small letter-spacing-2">CORREO ELECTRÓNICO</label>
+                    <input type="email" className="form-control custom-input" placeholder="juan@ejemplo.com" />
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <label className="form-label small letter-spacing-2">TIPO DE PROYECTO</label>
+                  <select className="form-select custom-input text-muted">
+                    <option defaultValue>Seleccionar categoría...</option>
+                    <option value="carpinteria">Carpintería Fina</option>
+                    <option value="tapiceria">Tapicería de Alto Confort</option>
+                    <option value="remodelacion">Remodelación Completa</option>
+                  </select>
+                </div>
+
+                <div className="mb-5">
+                  <label className="form-label small letter-spacing-2">MENSAJE / DETALLES DEL PROYECTO</label>
+                  <textarea className="form-control custom-input" rows="4" placeholder="Cuéntanos qué tienes en mente..."></textarea>
+                </div>
+
+                <button type="submit" className="btn btn-dark w-100 py-3 text-uppercase letter-spacing-3 btn-la16">
+                  Enviar Solicitud de Cotización
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
 };
