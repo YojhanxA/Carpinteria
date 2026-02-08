@@ -12,7 +12,7 @@ export const AboutUs = () => {
                         <div className="composition-wrapper position-relative">
                             <div className="main-img-frame">
                                 <img
-                                    src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1974&auto=format&fit=crop"
+                                    src="/img/Fondo_sobre.jpg"
                                     alt="Detalle de mueble de madera artesanal"
                                     className="img-fluid shadow-lg"
                                     style={{
@@ -25,8 +25,8 @@ export const AboutUs = () => {
                                 />
                             </div>
                             <div className="experience-badge fade-in">
-                                <span className="years">20+</span>
-                                <span className="label">AÑOS DE<br />MAESTRÍA</span>
+                                <span className="years">+5</span>
+                                <span className="label">AÑOS DE<br />PROFESION</span>
                             </div>
                         </div>
                     </div>

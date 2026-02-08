@@ -10,7 +10,7 @@ const productos = [
     { id: 2, nombre: "SOFA DE 4 PUESTOS", precio: "$1.120.000", categoria: "estructura", img: "/img/SofaExhibicion.jpg" },
     { id: 3, nombre: "ESCRITORIO MODERNO PARA FRUTIMPORT", precio: "$560.000", categoria: "cuero", img: "/img/EscritorioExhibicion.png" },
     { id: 4, nombre: "COMEDOR ELEGANTE", precio: "$920.000", categoria: "cuero", img: "/img/ComedorExhibicion.jpg" },
-    { id: 5, nombre: "MESA TERRAZO DARK", precio: "$2.100.000", categoria: "terrazo", img: "/img/CamaExhibicion.jpg" }
+    { id: 5, nombre: "CAMA MODERNA", precio: "$2.100.000", categoria: "terrazo", img: "/img/CamaExhibicion.jpg" }
 ];
 
 export const FeaturedProducts = () => {
