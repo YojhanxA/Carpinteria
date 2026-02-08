@@ -16,7 +16,8 @@ export const Contact = () => {
     const PUBLIC_KEY = "e-SaC2GDXYa8sgs_8"; 
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
-      .then((result) => {
+      .then(() => {
+          // Se eliminó 'result' de los paréntesis para solucionar el error de Vercel
           alert("¡Solicitud enviada con éxito! José Gregorio te contactará pronto.");
           form.current.reset(); // Limpia el formulario
       }, (error) => {
