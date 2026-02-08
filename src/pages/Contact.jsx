@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import "../styles/contact.css";
 
 export const Contact = () => {
+  const form = useRef();
+  const [enviando, setEnviando] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setEnviando(true);
+
+    // Configuración con tus credenciales reales
+    const SERVICE_ID = "service_g22k38a"; 
+    const TEMPLATE_ID = "template_p06jpji"; 
+    const PUBLIC_KEY = "e-SaC2GDXYa8sgs_8"; 
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then(() => {
+          // Se eliminó 'result' de los paréntesis para solucionar el error de Vercel
+          alert("¡Solicitud enviada con éxito! José Gregorio te contactará pronto.");
+          form.current.reset(); // Limpia el formulario
+      }, (error) => {
+          alert("Hubo un error al enviar. Por favor, intenta de nuevo.");
+          console.error("Error EmailJS:", error.text);
+      })
+      .finally(() => {
+          setEnviando(false);
+      });
+  };
+
   return (
     <section className="contacto-section">
-      {/* Cabecera Elegante */}
       <div className="contacto-header text-center">
         <div className="container">
           <span className="letter-spacing-3 text-muted d-block mb-2">PROYECTOS A MEDIDA</span>
@@ -18,14 +44,14 @@ export const Contact = () => {
       <div className="container py-5">
         <div className="row g-5">
           
-          {/* Columna Izquierda: Información de Contacto */}
+          {/* Información de Contacto e Mapa */}
           <div className="col-lg-5">
             <div className="info-wrapper pe-lg-5">
               <h3 className="h4 text-uppercase mb-4" style={{ letterSpacing: '2px' }}>Datos de Contacto</h3>
               
               <div className="contact-item mb-4">
                 <span className="label">UBICACIÓN</span>
-                <p>Calle 16 # 7-92, B/Santa Margarita Maria, Espinal - Tolima, Colombia</p>
+                <p>Calle 16 # 7-92, B/Santa Margarita Maria, El Espinal - Tolima, Colombia</p>
               </div>
 
               <div className="contact-item mb-4">
@@ -38,12 +64,11 @@ export const Contact = () => {
                 <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br/>Sábados: 8:00 AM - 1:00 PM</p>
               </div>
 
-              {/* Contenedor del Mapa - Altura incrementada un 25% */}
+              {/* Mapa con altura incrementada */}
               <div className="mini-map-placeholder mt-5 shadow-sm" style={{ height: '440px', position: 'relative', overflow: 'hidden', borderRadius: '8px' }}>
                 <iframe
                   title="Mapa Carpintería La 16"
-                  /* Ubicación exacta: Calle 16 # 7-92, Espinal */
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.620021356064!2d-74.8878536!3d4.1506443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3ef03799678f45%3A0x8e3ef03799678f45!2sCl.%2016%20%237-92%2C%20Espinal%2C%20Tolima!5e0!3m2!1ses!2sco!4v1714589000000!5m2!1ses!2sco"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.791552554271!2d-74.8872545!3d4.1517529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3927d6d1b74845%3A0xc665b6a7f457564d!2sCl.%2016%20%237-92%2C%20Espinal%2C%20Tolima!5e0!3m2!1ses!2sco!4v1707412345678"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -55,38 +80,42 @@ export const Contact = () => {
             </div>  
           </div>
 
-          {/* Columna Derecha: Formulario */}
+          {/* Formulario que conecta con tu plantilla de EmailJS */}
           <div className="col-lg-7">
             <div className="form-container bg-white p-4 p-md-5 shadow-sm">
-              <form>
+              <form ref={form} onSubmit={sendEmail}>
                 <div className="row">
                   <div className="col-md-6 mb-4">
                     <label className="form-label small letter-spacing-2">NOMBRE COMPLETO</label>
-                    <input type="text" className="form-control custom-input" placeholder="Ej. Juan Pérez" />
+                    <input name="user_name" type="text" className="form-control custom-input" placeholder="Ej. Juan Pérez" required />
                   </div>
                   <div className="col-md-6 mb-4">
                     <label className="form-label small letter-spacing-2">CORREO ELECTRÓNICO</label>
-                    <input type="email" className="form-control custom-input" placeholder="juan@ejemplo.com" />
+                    <input name="user_email" type="email" className="form-control custom-input" placeholder="juan@ejemplo.com" required />
                   </div>
                 </div>
 
                 <div className="mb-4">
                   <label className="form-label small letter-spacing-2">TIPO DE PROYECTO</label>
-                  <select className="form-select custom-input text-muted">
-                    <option defaultValue>Seleccionar categoría...</option>
-                    <option value="carpinteria">Carpintería Fina</option>
-                    <option value="tapiceria">Tapicería de Alto Confort</option>
-                    <option value="remodelacion">Remodelación Completa</option>
+                  <select name="project_type" className="form-select custom-input text-muted" required>
+                    <option value="">Seleccionar categoría...</option>
+                    <option value="Carpintería Fina">Carpintería Fina</option>
+                    <option value="Tapicería de Alto Confort">Tapicería de Alto Confort</option>
+                    <option value="Remodelación Completa">Remodelación Completa</option>
                   </select>
                 </div>
 
                 <div className="mb-5">
                   <label className="form-label small letter-spacing-2">MENSAJE / DETALLES DEL PROYECTO</label>
-                  <textarea className="form-control custom-input" rows="4" placeholder="Cuéntanos qué tienes en mente..."></textarea>
+                  <textarea name="message" className="form-control custom-input" rows="4" placeholder="Cuéntanos qué tienes en mente..." required></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-dark w-100 py-3 text-uppercase letter-spacing-3 btn-la16">
-                  Enviar Solicitud de Cotización
+                <button 
+                  type="submit" 
+                  className="btn btn-dark w-100 py-3 text-uppercase letter-spacing-3 btn-la16"
+                  disabled={enviando}
+                >
+                  {enviando ? "Enviando Solicitud..." : "Enviar Solicitud de Cotización"}
                 </button>
               </form>
             </div>
