@@ -15,6 +15,7 @@ export const Navbar = () => {
           <ul className="nav justify-content-center py-2">
             <li className="nav-item"><Link className="nav-link-white" to="/">INICIO</Link></li>
             <li className="nav-item"><Link className="nav-link-white" to="/productos">PRODUCTOS</Link></li>
+            <li className="nav-item"><Link className="nav-link-white" to="/tapiceria">TAPICERIA</Link></li>
             
             {/* ÍTEM CON DROPDOWN */}
             <li className="nav-item dropdown-custom">

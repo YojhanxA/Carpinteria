@@ -25,31 +25,34 @@ export const Contact = () => {
               
               <div className="contact-item mb-4">
                 <span className="label">UBICACIÓN</span>
-                <p>Carrera 16 #XX-XX, Tu Ciudad, País</p>
+                <p>Calle 16 # 7-92, B/Santa Margarita Maria, Espinal - Tolima, Colombia</p>
               </div>
 
               <div className="contact-item mb-4">
                 <span className="label">WHATSAPP / TEL</span>
-                <p>+57 300 000 0000</p>
+                <p>+57 324 676 82110</p>
               </div>
 
               <div className="contact-item mb-4">
                 <span className="label">HORARIO DE ATENCIÓN</span>
-                <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br/>Sábados: 9:00 AM - 1:00 PM</p>
+                <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br/>Sábados: 8:00 AM - 1:00 PM</p>
               </div>
 
-              {/* Mapa o Imagen Decorativa */}
-              <div className="mini-map-placeholder mt-5">
-                <img 
-                  src="/img/SofaExhibicion.jpg" 
-                  alt="Taller La 16" 
-                  className="img-fluid grayscale-filter" 
-                />
-                <div className="map-overlay">
-                  <span>VISITA NUESTRO TALLER</span>
-                </div>
+              {/* Contenedor del Mapa - Altura incrementada un 25% */}
+              <div className="mini-map-placeholder mt-5 shadow-sm" style={{ height: '440px', position: 'relative', overflow: 'hidden', borderRadius: '8px' }}>
+                <iframe
+                  title="Mapa Carpintería La 16"
+                  /* Ubicación exacta: Calle 16 # 7-92, Espinal */
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.620021356064!2d-74.8878536!3d4.1506443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3ef03799678f45%3A0x8e3ef03799678f45!2sCl.%2016%20%237-92%2C%20Espinal%2C%20Tolima!5e0!3m2!1ses!2sco!4v1714589000000!5m2!1ses!2sco"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
-            </div>
+            </div>  
           </div>
 
           {/* Columna Derecha: Formulario */}
