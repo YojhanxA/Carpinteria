@@ -1,55 +1,144 @@
-/* Estilos para Nuestra Esencia */
+/* Estilos para Nuestra Esencia - MEJORADO */
 .essencia-section {
-    background: radial-gradient(circle at center, #ffffff 0%, #fcfcfc 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.essencia-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(62, 68, 83, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
 
 .essencia-card {
-    transition: all 0.5s ease;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
-    border: 1px solid transparent;
+    border: 1px solid rgba(62, 68, 83, 0.08);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    padding: 4px !important;
+    overflow: hidden;
+}
+
+.essencia-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3e4453 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.essencia-card:hover::before {
+    opacity: 1;
 }
 
 .essencia-card:hover {
-    background-color: #fff;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-    transform: translateY(-10px);
+    background-color: #ffffff;
+    box-shadow: 0 20px 60px rgba(62, 68, 83, 0.12);
+    transform: translateY(-12px);
+    border-color: rgba(62, 68, 83, 0.2);
 }
 
 .pilar-number {
     font-size: 0.7rem;
     font-weight: 700;
     color: #3e4453;
-    opacity: 0.3;
+    opacity: 0.4;
     letter-spacing: 4px;
     display: block;
     margin-bottom: 10px;
+    text-transform: uppercase;
+    animation: fadeInUp 0.8s ease-out backwards;
 }
 
 .pilar-icon {
     font-size: 2.5rem;
     color: #3e4453;
-    transition: transform 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: block !important;
+    margin-bottom: 15px !important;
 }
 
 .essencia-card:hover .pilar-icon {
-    transform: scale(1.1);
+    transform: scale(1.15) translateY(-5px);
+    color: #52596a;
+}
+
+.essencia-card h4 {
+    animation: fadeInUp 0.8s ease-out 0.1s backwards;
+}
+
+.essencia-card p {
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* El botón que conecta con la galería de fotos */
 .btn-premium-outline {
     text-decoration: none;
     color: #3e4453;
-    border: 1px solid #3e4453;
-    padding: 14px 40px;
+    border: 2px solid #3e4453;
+    padding: 16px 45px;
     font-size: 0.75rem;
     letter-spacing: 3px;
     font-weight: 600;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: inline-block;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.btn-premium-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #3e4453;
+    transition: left 0.5s ease;
+    z-index: -1;
 }
 
 .btn-premium-outline:hover {
-    background-color: #3e4453;
-    color: white;
-    letter-spacing: 4px;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(62, 68, 83, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-premium-outline:hover::before {
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .essencia-section::before {
+        width: 300px;
+        height: 300px;
+        top: 0;
+        right: -20%;
+    }
 }

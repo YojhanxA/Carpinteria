@@ -1,26 +1,26 @@
 // src/components/NuestraEsencia.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/esencia.css"; // <--- Verifica que el nombre sea idéntico al archivo
+import "../styles/esencia.css";
 
 export const NuestraEsencia = () => {
   const pilares = [
     {
       id: "01",
       titulo: "CARPINTERÍA",
-      desc: "Maderas seleccionadas y ensambles precisos. Creamos estructuras que son el alma de tu hogar.",
+      desc: "Maderas seleccionadas y ensambles precisos. Creamos estructuras que son el alma de tu hogar. Cada veta cuenta una historia.",
       icon: "bi bi-tools"
     },
     {
       id: "02",
       titulo: "TAPICERÍA",
-      desc: "Texturas premium y confort ergonómico. El arte de vestir tus muebles con elegancia y suavidad.",
+      desc: "Texturas premium y confort ergonómico. El arte de vestir tus muebles con elegancia, suavidad y resistencia incomparable.",
       icon: "bi bi-palette"
     },
     {
       id: "03",
       titulo: "PERSONALIZACIÓN",
-      desc: "Diseños únicos para espacios únicos. Transformamos tus ideas en piezas de mobiliario exclusivas.",
+      desc: "Diseños únicos para espacios únicos. Transformamos tus ideas en realidad, creando piezas de mobiliario exclusivas y memorables.",
       icon: "bi bi-vector-pen"
     }
   ];
@@ -30,13 +30,13 @@ export const NuestraEsencia = () => {
       <div className="container py-5">
         {/* Cabecera de la sección */}
         <div className="text-center mb-5 fade-in">
-          <span className="letter-spacing-3 text-muted mb-2 d-block" style={{ fontSize: '0.7rem' }}>
-            EL ARTE DE CREAR
+          <span className="letter-spacing-3 text-muted mb-2 d-block" style={{ fontSize: '0.7rem', textTransform: 'uppercase' }}>
+            El arte de crear
           </span>
-          <h2 className="brand-logo-central mb-4" style={{ fontSize: '2.5rem', color: '#3e4453' }}>
-            NUESTRA ESENCIA
+          <h2 className="brand-logo-central mb-4" style={{ fontSize: '2.5rem', color: '#3e4453', fontWeight: '300', letterSpacing: '1px' }}>
+            Nuestra Esencia
           </h2>
-          <div className="mx-auto" style={{ width: '60px', height: '1px', backgroundColor: '#3e4453' }}></div>
+          <div className="mx-auto" style={{ width: '60px', height: '2px', backgroundColor: '#3e4453', opacity: 0.6 }}></div>
         </div>
 
         {/* Pilares interactivos */}
@@ -46,10 +46,10 @@ export const NuestraEsencia = () => {
               <div className="essencia-card text-center p-4">
                 <span className="pilar-number">{pilar.id}</span>
                 <i className={`${pilar.icon} pilar-icon d-block mb-4`}></i>
-                <h4 className="letter-spacing-2 mb-3" style={{ fontSize: '1.2rem', fontWeight: '500' }}>
+                <h4 className="letter-spacing-2 mb-3" style={{ fontSize: '1.2rem', fontWeight: '500', color: '#3e4453' }}>
                   {pilar.titulo}
                 </h4>
-                <p className="text-muted fw-light" style={{ fontSize: '0.9rem', lineHeight: '1.8' }}>
+                <p className="text-muted fw-light" style={{ fontSize: '0.9rem', lineHeight: '1.8', color: '#666' }}>
                   {pilar.desc}
                 </p>
               </div>
@@ -60,7 +60,7 @@ export const NuestraEsencia = () => {
         {/* Botón de acción hacia Proyectos */}
         <div className="text-center mt-5 pt-4">
           <Link to="/proyectos" className="btn-premium-outline">
-            EXPLORAR GALERÍA DE PROYECTOS
+            Explorar Galería de Proyectos
           </Link>
         </div>
       </div>

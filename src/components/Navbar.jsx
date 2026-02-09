@@ -1,12 +1,25 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Detecta si el usuario ha scrolleado más de 50px
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="navbar-overlay pt-4">
+    <header className={`navbar-overlay pt-4 ${isScrolled ? "navbar-scrolled" : ""}`}>
       <div className="container text-center">
         <div className="d-flex justify-content-between align-items-center mb-3 position-relative">
           <div style={{ width: "40px" }}></div>
-          <div className="d-flex gap-3 text-white iconos-header"> 
+          <div className="d-flex gap-3 text-white iconos-header">
             <i className="bi bi-person cursor-pointer"></i>
             <i className="bi bi-search cursor-pointer"></i>
           </div>
@@ -16,7 +29,7 @@ export const Navbar = () => {
             <li className="nav-item"><Link className="nav-link-white" to="/">INICIO</Link></li>
             <li className="nav-item"><Link className="nav-link-white" to="/productos">PRODUCTOS</Link></li>
             <li className="nav-item"><Link className="nav-link-white" to="/tapiceria">TAPICERIA</Link></li>
-            
+
             {/* ÍTEM CON DROPDOWN */}
             <li className="nav-item dropdown-custom">
               <Link className="nav-link-white d-flex align-items-center" to="/proyectos">

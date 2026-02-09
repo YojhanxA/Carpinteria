@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Estilos
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./pages/App.css";
 import "./styles/productos.css";
 import "./styles/loading.css";
 
@@ -11,8 +12,9 @@ import "./styles/loading.css";
 import { Home } from "./pages/Home";
 import { Productos } from "./pages/Productos";
 import { Proyectos } from "./pages/Proyectos";
-import { AboutUs } from "./pages/AboutUs"; // Importación de tu nueva página
+import { AboutUs } from "./pages/AboutUs";
 import { Contact } from "./pages/Contact";
+import { Tapiceria } from "./pages/Tapiceria"; // <-- Nueva Importación
 import Salas from "./pages/Salas";
 import Sofas from "./pages/Sofas";
 import Cocinas from "./pages/Cocinas";
@@ -34,11 +36,9 @@ export const App = () => {
   });
 
   useEffect(() => {
-    // Solo activamos el temporizador si es la primera carga
     if (isLoading) {
       const timer = setTimeout(() => {
         setIsLoading(false);
-        // Guardamos la bandera en la sesión del navegador
         sessionStorage.setItem("app_loaded", "true");
       }, 1000);
 
@@ -46,32 +46,35 @@ export const App = () => {
     }
   }, [isLoading]);
 
-  // Si isLoading es true, se muestra la pantalla de carga bloqueando el resto
   if (isLoading) {
     return <LoadingScreen />;
   }
 
-  // Una vez cargado (o si ya se cargó en esta sesión), se muestra la web completa
   return (
     <Router>
       <ScrollToTop />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} /> {/* Ruta para AboutUs */}
-        <Route path="/contacto" element={<Contact />} /> {/* Ruta para Contacto */}
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/proyectos" element={<Proyectos />} />
-        <Route path="/proyectos/salas" element={<Salas />} />
-        <Route path="/proyectos/sofas" element={<Sofas />} />
-        <Route path="/proyectos/cocinas" element={<Cocinas />} />
-        <Route path="/proyectos/closets" element={<Closets />} />
-        <Route path="/proyectos/camas" element={<Camas />} />
-        <Route path="/proyectos/escritorios" element={<Escritorios />} />
-      </Routes>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/proyectos" element={<Proyectos />} />
+
+          {/* Rutas de Categorías de Proyectos */}
+          <Route path="/proyectos/salas" element={<Salas />} />
+          <Route path="/proyectos/sofas" element={<Sofas />} />
+          <Route path="/tapiceria" element={<Tapiceria />} /> {/* <-- Nueva Ruta */}
+          <Route path="/proyectos/cocinas" element={<Cocinas />} />
+          <Route path="/proyectos/closets" element={<Closets />} />
+          <Route path="/proyectos/camas" element={<Camas />} />
+          <Route path="/proyectos/escritorios" element={<Escritorios />} />
+        </Routes>
+      </div>
       <Footer />
     </Router>
-  );
+  )
 };
 
 createRoot(document.getElementById("root")).render(

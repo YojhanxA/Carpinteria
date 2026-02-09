@@ -1,65 +1,656 @@
-.sobre-nosotros-section {
-    background-color: #ffffff;
+/* ========================================
+   ABOUT US - COMPLETE PREMIUM REDESIGN
+   ======================================== */
+
+.about-us-container {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.about-hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     overflow: hidden;
 }
 
-.color-marca {
-    color: #3e4453;
+.about-hero-badge {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #d2b48c;
+    font-weight: 600;
+    text-transform: uppercase;
+    animation: slideDown 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    opacity: 0;
 }
 
-/* Composición de imagen con badge */
-.composition-wrapper {
+.about-hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 20px 0;
+    animation: slideDown 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s forwards;
+    opacity: 0;
+    max-width: 800px;
+}
+
+.about-hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+    animation: slideDown 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s forwards;
+    opacity: 0;
+    max-width: 700px;
+}
+
+/* ========================================
+   MISSION - VISION - VALUES SECTION
+   ======================================== */
+.about-mvv-section {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.about-mvv-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.mvv-item {
+    text-align: center;
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.mvv-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #3e4453;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.mvv-text {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.mvv-divider {
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #8b7355, transparent);
+}
+
+/* ========================================
+   PILLARS SECTION
+   ======================================== */
+.about-pillars-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    padding: 100px 0;
+    color: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b7355, transparent);
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    perspective: 1000px;
+}
+
+.pilar-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(139, 115, 85, 0.3);
+    padding: 45px 30px;
+    border-radius: 8px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+    cursor: pointer;
+}
+
+.pilar-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #8b7355;
+    box-shadow: 0 20px 50px rgba(139, 115, 85, 0.2);
+}
+
+.pilar-icon {
+    font-size: 2.5rem;
+    color: #8b7355;
+    margin-bottom: 20px;
+    transition: all 0.4s ease;
+}
+
+.pilar-card:hover .pilar-icon {
+    transform: scale(1.2) rotate(15deg);
+}
+
+.pilar-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.pilar-description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+/* ========================================
+   STORY SECTION WITH IMAGE
+   ======================================== */
+.about-story-section {
+    background: white;
+    padding: 100px 0;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.story-image-side {
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s both;
+}
+
+.story-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.story-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: block;
+}
+
+.story-image-wrapper:hover .story-image {
+    transform: scale(1.08);
+}
+
+.story-image-accent {
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(139, 115, 85, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.story-text-side {
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s both;
     padding: 20px;
 }
 
-.main-img-frame {
-    position: relative;
-    z-index: 1;
+.about-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: #8b7355;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
-.main-img-frame img {
-    border-radius: 2px;
-    filter: grayscale(20%);
-    transition: filter 0.5s ease;
+.story-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #3e4453;
+    margin-bottom: 30px;
+    line-height: 1.2;
 }
 
-.main-img-frame:hover img {
-    filter: grayscale(0%);
+.story-intro {
+    font-size: 1.1rem;
+    color: #3e4453;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
-.experience-badge {
-    position: absolute;
-    bottom: -30px;
-    right: 0;
-    background-color: #3e4453;
-    color: white;
-    padding: 30px;
+.story-body {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.story-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.highlight-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    z-index: 2;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+    gap: 10px;
 }
 
-.experience-badge .years {
-    font-size: 2.5rem;
-    font-weight: 200;
-    line-height: 1;
+.highlight-number {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #8b7355;
+    letter-spacing: 1px;
 }
 
-.experience-badge .label {
-    font-size: 0.6rem;
-    letter-spacing: 3px;
+.highlight-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #3e4453;
+    font-weight: 600;
+}
+
+/* ========================================
+   TIMELINE SECTION
+   ======================================== */
+.about-timeline-section {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    padding: 100px 0;
+    color: white;
+    position: relative;
+}
+
+.timeline-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b7355 20%, #8b7355 80%, transparent);
+    display: none;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: #8b7355;
+    border: 3px solid #1a1a1a;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+    width: 24px;
+    height: 24px;
+    top: 0;
+    box-shadow: 0 0 20px rgba(139, 115, 85, 0.5);
+}
+
+.timeline-year {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #8b7355;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.timeline-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+/* ========================================
+   STATS SECTION
+   ======================================== */
+.about-stats-section {
+    background: white;
+    padding: 80px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.about-stat {
     text-align: center;
-    margin-top: 5px;
+    padding: 40px 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) both;
 }
 
-/* Animación sutil para el texto */
-.story-content p {
-    animation: fadeInSlide 1s ease-out;
+.about-stat:hover {
+    background: white;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(139, 115, 85, 0.15);
 }
 
-@keyframes fadeInSlide {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
+.stat-number {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    color: #8b7355;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #3e4453;
+    font-weight: 600;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.about-cta-section {
+    background: linear-gradient(135deg, #8b7355 0%, #a0876a 100%);
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.cta-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    line-height: 1.7;
+}
+
+.btn-cta-about {
+    display: inline-block;
+    padding: 18px 50px;
+    background: white;
+    color: #8b7355;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cta-about:hover {
+    background: #f5f5f5;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-left {
+    animation: fadeInLeft 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fade-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1200px) {
+    .about-mvv-content {
+        grid-template-columns: 1fr;
+    }
+
+    .mvv-divider {
+        display: none;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .story-image {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-pillars-section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+
+    .pillars-grid {
+        gap: 20px;
+    }
+
+    .pilar-card {
+        padding: 30px 20px;
+    }
+
+    .about-story-section {
+        padding: 60px 0;
+    }
+
+    .story-text-side {
+        padding: 0;
+    }
+
+    .story-image {
+        height: 300px;
+    }
+
+    .story-highlights {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-timeline-section {
+        padding: 60px 0;
+    }
+
+    .timeline-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats-section {
+        padding: 60px 0;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-cta-section {
+        padding: 60px 0;
+    }
+
+    .cta-title {
+        font-size: 1.8rem;
+    }
+
+    .cta-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .btn-cta-about {
+        padding: 15px 40px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .cta-title {
+        font-size: 1.4rem;
+    }
 }
